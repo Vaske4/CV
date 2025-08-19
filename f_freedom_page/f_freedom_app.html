@@ -83,7 +83,7 @@
       <div class="features-layout">
         <div>
           <!-- Feature Item Template: add class 'open' if you want one opened initially -->
-          <article class="feature-item" data-image="images/Login_Screen.png">
+          <article class="feature-item" data-image="./images/Login_Screen.png">
             <div class="feature-header">
               <h3 class="feature-title">Login und Registrierung</h3>
               <span class="feature-arrow">▼</span>
@@ -93,7 +93,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/Main_Overview_Img.png">
+          <article class="feature-item" data-image="./images/Main_Overview_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Main Screen</h3>
               <span class="feature-arrow">▼</span>
@@ -103,7 +103,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/Main_Add_Img.png">
+          <article class="feature-item" data-image="./images/Main_Add_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Transaktionen hinzufügen</h3>
               <span class="feature-arrow">▼</span>
@@ -113,7 +113,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/Search_Img.png">
+          <article class="feature-item" data-image="./images/Search_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Transaktionen suchen</h3>
               <span class="feature-arrow">▼</span>
@@ -123,7 +123,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/Monthly_Img.png">
+          <article class="feature-item" data-image="./images/Monthly_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Monatliche Übersicht</h3>
               <span class="feature-arrow">▼</span>
@@ -133,7 +133,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/NtoG_Img.png">
+          <article class="feature-item" data-image="./images/NtoG_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Brutto/Netto Rechner</h3>
               <span class="feature-arrow">▼</span>
@@ -143,7 +143,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/DCA-Img.png">
+          <article class="feature-item" data-image="./images/DCA-Img.png">
             <div class="feature-header">
               <h3 class="feature-title">DCA Calculator</h3>
               <span class="feature-arrow">▼</span>
@@ -153,7 +153,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/Goals_Overview_Img.png">
+          <article class="feature-item" data-image="./images/Goals_Overview_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Goals Übersicht</h3>
               <span class="feature-arrow">▼</span>
@@ -163,7 +163,7 @@
             </div>
           </article>
 
-          <article class="feature-item" data-image="images/Profil_Img.png">
+          <article class="feature-item" data-image="./images/Profil_Img.png">
             <div class="feature-header">
               <h3 class="feature-title">Profil</h3>
               <span class="feature-arrow">▼</span>
@@ -177,7 +177,9 @@
           <div class="phone">
             <div class="phone-top"></div>
             <div class="phone-screen">
-              <img id="featureImage" src="images/Logo_Screen.png" alt="Feature Screenshot" />
+              <!-- Ersetze das img-Element durch ein video-Element -->
+              <video id="featureVideo" src="./Start_Video.mp4" autoplay muted playsinline aria-label="App Intro Video"></video>
+              <img id="featureImage" src="./images/Logo_Screen.png" alt="Feature Screenshot" style="display: none;" />
             </div>
             <div class="phone-bottom"></div>
           </div>
@@ -257,23 +259,45 @@
     nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(body.classList.contains('nav-open')){ body.classList.remove('nav-open'); btn?.setAttribute('aria-expanded','false'); }}));
 
     // Feature click handling (arrow + image + description)
-    const featureCards=[...document.querySelectorAll('.feature-item')];
-    const featureImg=document.getElementById('featureImage');
-    featureCards.forEach(card=>{
+    const featureCards = [...document.querySelectorAll('.feature-item')];
+    const featureImg = document.getElementById('featureImage');
+    const featureVideo = document.getElementById('featureVideo');
+
+    // Initial state: Video showing, image hidden
+    featureVideo.style.display = 'block';
+    featureImg.style.display = 'none';
+
+    featureCards.forEach(card => {
       const header = card.querySelector('.feature-header');
-      header.addEventListener('click',()=>{
+      header.addEventListener('click', () => {
         const isOpen = card.classList.toggle('open');
+        
         // Arrow symbol shows ▼ by default; rotate on open
         const arrow = card.querySelector('.feature-arrow');
         if (arrow) { arrow.textContent = '▼'; }
+        
         // Toggle description
-        document.querySelectorAll('.feature-item .feature-description').forEach(d=>{ if(d!==card.querySelector('.feature-description')) d.style.display='none'; });
-        document.querySelectorAll('.feature-item').forEach(c=>{ if(c!==card) c.classList.remove('open'); });
+        document.querySelectorAll('.feature-item .feature-description').forEach(d => {
+          if (d !== card.querySelector('.feature-description')) d.style.display = 'none';
+        });
+        document.querySelectorAll('.feature-item').forEach(c => {
+          if (c !== card) c.classList.remove('open');
+        });
+        
         const desc = card.querySelector('.feature-description');
         if (desc) desc.style.display = isOpen ? 'block' : 'none';
-        // Update phone image
+        
+        // Update display: show image if clicked, video if unclicked
         const img = card.getAttribute('data-image');
-        if (featureImg && img) { featureImg.src = img; featureImg.alt = card.querySelector('.feature-title')?.textContent || 'Feature'; }
+        if (isOpen && img) {
+          featureVideo.style.display = 'none';
+          featureImg.style.display = 'block';
+          featureImg.src = img;
+          featureImg.alt = card.querySelector('.feature-title')?.textContent || 'Feature';
+        } else {
+          featureVideo.style.display = 'block';
+          featureImg.style.display = 'none';
+        }
       });
     });
   </script>
