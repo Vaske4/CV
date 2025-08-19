@@ -1,247 +1,281 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mein Projekt | f:freedom APP</title>
-    <link rel="stylesheet" href="f_freedom_app.css">
+  <meta charset="UTF-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nikola Vasic | Budget Tracking App | Projekt</title>
+  <meta name="description" content="Projektseite der Budget Tracking App f:freedom – Überblick, Features, Herausforderungen und Erfahrungen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./f_freedom_app.css" />
 </head>
 <body>
-    <!-- Header und Navigation -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo">f:<span>freedom</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#overview">Übersicht</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#Challenges">Challenges</a></li>
-                    <li><a href="#experience">Erfahrung</a></li>
-                   <li><a href="https://vaske4.github.io/CV/" class="back-link"><span class="arrow">→</span></a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Home Section -->
-    <section id="home" class="section">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Budget Tracking APP <span>f:freedom</span></h1>
-                    <p>Die App hilft Nutzern, ihre Einnahmen und Ausgaben zu tracken, um einen besseren Überblick über ihre Finanzen zu behalten.</p>
-                    <div class="hero-buttons">
-                        <a href="#overview" class="btn">Übersicht</a>
-                        <a href="#experience" class="btn btn-secondary">Erfahrung</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="phone">
-                        <div class="phone-top"></div>
-                        <div class="phone-screen">
-                            <video src="Start_Video.mp4" autoplay muted alt="App Logo Video" style="width: 100%; height: 95%; object-fit: cover;">
-                        </div>
-                        <div class="phone-bottom"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Übersicht Sektion -->
-    <section id="overview" class="section">
-        <div class="container">
-            <h2 class="section-title">Übersicht</h2>
-            <div class="overview-content">
-                <div class="overview-text">
-                    <h3>Budget Tracking APP Projekt</h3>
-                    <p><b>Projektmitglieder: Manuel Leiter, Stefan König & Nikola Vasic</b></p>
-                    <p>Über das dritte Semester hinweg haben wir im Rahmen eines Projekts die Aufgabe erhalten, eine eigene App zu entwickeln.
-                        Unsere App wurde mit <b>Android Studio</b> unter Verwendung der Programmiersprache <b>Kotlin</b> und <b>Jetpack Compose</b> erstellt.
-                    </p>
-                    <p>Bei der Themenwahl hatten wir freie Hand. Da wir Wirtschaftsinformatik studieren und uns für diesen Bereich interessieren,
-                         war schnell klar, dass wir eine <b>Budget-Tracking-App</b> entwickeln wollen.</p>
-                    <p>Unsere App hilft Nutzer:innen, ihre <b>Einnahmen und Ausgaben</b> übersichtlich zu erfassen,
-                         um eine bessere Kontrolle über ihre Finanzen zu behalten.</p>
-                         
-                </div>
-                <div class="overview-skills">
-                    <div class="phone-section">
-                        <div class="phone sticky-phone">
-                            <div class="phone-top"></div>
-                            <div class="phone-screen" id="phoneScreen">
-                                <video src="images/App_Video.mp4" autoplay muted loop alt="App Video" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div class="phone-bottom"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Features Sektion -->
-    <section id="features" class="section">
-        <div class="container">
-            <h2 class="section-title">Features</h2>
-            <div class="features-content">    
-                <div class="features-text">    
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Login_Screen.png">
-                        <h3>Login und Registrierung</h3>
-                        <div class="feature-description">
-                            <p>Unsere App bietet eine sichere und einfache Möglichkeit, sich zu registrieren oder anzumelden. 
-                               Die Nutzerdaten werden verschlüsselt gespeichert und die Anmeldung erfolgt schnell und unkompliziert.</p>
-                        </div>
-                    </div>
-                    <!-- Main Screen -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Main_Overview_Img.png">
-                        <h3>Main Screen</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p>Das übersichtliche Dashboard zeigt alle wichtigen Informationen auf einen Blick. 
-                               Einnahmen, Ausgaben und der aktuelle Kontostand werden klar dargestellt.
-                                Transaktion können ganz leicht mit einem Swipe gelöscht werden.</p>
-                        </div>
-                    </div>
-                    <!-- Main Add Screen -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Main_Add_Img.png">
-                        <h3>Transaktionen hinzufügen</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p>Neue Einnahmen und Ausgaben können schnell und einfach hinzugefügt werden. 
-                               Kategorien helfen bei der Organisation.</p>
-                        </div>
-                    </div>
-                    <!-- Search Screen -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Search_Img.png">
-                        <h3>Transaktionen suchen</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p>Einnahmen und Ausgaben können schnell erfasst werden. 
-                               Mit dem DropDown-Feld kann man sich aussuchen nach welchem Merkmal man seine Transaktionen suchen möchte.
-                                Die Wahlmöglichkeiten sind: Description, Amount, Categorie oder Date.</p>
-                        </div>
-                    </div>
-                    <!-- Monthly Overview Screen -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Monthly_Img.png">
-                        <h3>Monatliche Übersicht</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p>Das Dashboard zeigt alle wichtigen Transaktion des Monats.
-                                Dadurch wird eine noch detailierte Übersicht ermöglicht. </p>
-                        </div>
-                    </div>
-                    <!-- GrossToNet -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/NtoG_Img.png">
-                        <h3>Brutto/Netto Rechner</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p>Dieser Rechner ermöglicht es Brutto Beträg in Netto umzurechnen.
-                                Noch dazu werden die Versteuerungen und Sozialversicherungen angezeigt</p>
-                        </div>
-                    </div>
-                    <!-- DCA Screen -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/DCA-Img.png">
-                        <h3>DCA Calculator</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p>Der DCA (Dollar Cost Average) ermöglicht dem User einen guten und leichten Einblick über Investitionen.
-                                Der User kann sehen was wäre wenn sie/er in eine bestimmte Aktie investiert hätte.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Goals Overview -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Goals_Overview_Img.png">
-                        <h3>Goals Übersicht</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p> 
-                                Der User kann sich Ziele setzen und diese verfolgen.
-                                 Die App zeigt an wie viel noch fehlt bis das Ziel erreicht ist.
-                                 Mit dem Plus untren rechts kann der User ein neues Ziel hinzufügen.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Profil -->
-                    <div class="feature-item" onclick="toggleFeature(this)" data-image="images/Profil_Img.png">
-                        <h3>Profil</h3>
-                        <div class="feature-description" style="display: none;">
-                            <p> 
-                                Der User kann sein Profil anschauen und seinen Level fortschritt sehen.
-                                    Je mehr er spart desto schneller steigt er in den Leveln auf.
-                                    Noch dazu kann man sich mit dem Knopf unten ausloggen.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="phone-container">   
-                    <div class="phone">
-                        <div class="phone-top"></div>
-                        <div class="phone-screen">
-                            <img src="images/Logo_Screen.png" alt="Feature Screenshot" id="featureImage">
-                        </div>
-                        <div class="phone-bottom"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Challenges Sektion -->
-    <section id="challenges" class="section">
-        <div class="container">
-            <h2 class="section-title">Challenges</h2>
-            <div class="challenges-grid">
-                <div class="challenge-box">
-                    <h3>Kotlin & Jetpack Compose</h3>
-                    <p>Eine große Herausforderung war die Arbeit mit Kotling & Jetpack Compose.
-                        Da wir zuvor keine Erfahrung mit diesen Technologien hatten, mussten wir uns erst einarbeiten und 
-                        herausfinden was möglich ist und was nicht.
-                    </p>
-                </div>
-                <div class="challenge-box">
-                    <h3>Datenbank Verknüpfung</h3>
-                    <p>Die Verknüpfung mit der Datenbank war die größte Herausforderung. 
-                        Da jeder Screen andere Daten benötigte mussten wir dementsprechend auch die Verknüpfung anpassen.</p>
-                </div>
-                <div class="challenge-box">
-                    <h3>GitLab</h3>
-                    <p>
-                        Die Zusammenarbeit über GitLab war eine Herausforderung, da wir zuvor keine Erfahrung mit Git hatten.
-                    </p>
-                </div>
-                <div class="challenge-box">
-                    <h3>Zeitaufwand</h3>
-                    <p>
-                        Der Zeitaufwand war eine große Herausforderung. 
-                        Da wir alle noch andere Projekte und Prüfungen hatten, mussten wir uns die Zeit gut einteilen.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Erfahrung Sektion -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Erfahrung</h2>
-            <div class="experience-grid">
-                <div class="experience-box">
-                    <h3>App und Datenbank Entwicklung</h3>
-                    <p>Durch dieses Projekt haben wir gelernt, wie man eine vollständige <b>Android-App</b> und <b>Datenbank</b>
-                       von Grund auf entwickelt. Die Arbeit mit <b>Kotlin</b> und <b>Jetpack Compose</b> hat uns 
-                       wertvolle Einblicke in moderne App-Entwicklung gegeben und mit <b>Microsoft SQL</b> haben wir auch gelernt,
-                        wie man die dazugehörige Datenbank erstellt und verknüpft.</p>
-                </div>
-                <div class="experience-box">
-                    <h3>Teamarbeit</h3>
-                    <p>Die Zusammenarbeit im Team und die Nutzung von GitLab hat uns gezeigt, 
-                       wie wichtig <b>gute Kommunikation</b> ist. Die Arbeit mit GitLab war sehr nützlich, da wir für 
-                            zukünftige Projekte ebenfalls GitLab werden wollen.</p>
-                </div>
-                <div class="experience-box">
-                    <h3>Zeitmanagement und Organisation</h3>
-                    <p>Da wir neben dem Projekt noch andere Projekte und Prüfungen hatten, 
-                       mussten wir lernen, uns <b>effizient</b> zu organisieren und die Zeit <b>effektiv</b> zu nutzen.</p>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="script.js"></script>
-</body>
-<footer>
+  <!-- Header -->
+  <header id="header">
     <div class="container">
+      <nav>
+        <div class="logo">Nikola <span>Vasic</span></div>
+        <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menü öffnen/schließen">☰ Menü</button>
+        <ul id="primary-navigation" class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#overview">Übersicht</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#challenges">Challenges</a></li>
+          <li><a href="#experience">Erfahrung</a></li>
+          <li><a href="../index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
+        </ul>
+      </nav>
     </div>
-</footer>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="section">
+    <div class="container hero">
+      <div class="fade-up">
+        <h1>Budget Tracking App <span>f:freedom</span></h1>
+        <p class="muted">Die App hilft Nutzer:innen, Einnahmen und Ausgaben zu tracken – für klare Finanzübersicht und bessere Entscheidungen.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#overview">Übersicht</a>
+          <a class="btn btn-outline" href="#experience">Erfahrung</a>
+        </div>
+      </div>
+      <div class="fade-up phone-container">
+        <div class="phone">
+          <div class="phone-top"></div>
+          <div class="phone-screen">
+            <video src="./Start_Video.mp4" autoplay muted playsinline loop aria-label="App Intro Video"></video>
+          </div>
+          <div class="phone-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="section">
+    <div class="container grid-2">
+      <div class="fade-up">
+        <h2 class="section-title">Übersicht</h2>
+        <div class="card">
+          <h3>Budget Tracking App Projekt</h3>
+          <p><strong>Projektmitglieder:</strong> Manuel Leiter, Stefan König &amp; Nikola Vasic</p>
+          <p>Über das dritte Semester hinweg haben wir im Rahmen eines Projekts die Aufgabe erhalten, eine eigene App zu entwickeln. Unsere App wurde mit <strong>Android Studio</strong> unter Verwendung von <strong>Kotlin</strong> und <strong>Jetpack Compose</strong> erstellt.</p>
+          <p>Da wir Wirtschaftsinformatik studieren, lag eine <strong>Budget‑Tracking‑App</strong> nahe: Nutzer:innen erfassen <strong>Einnahmen</strong> und <strong>Ausgaben</strong> übersichtlich und behalten so jederzeit die Kontrolle über ihre Finanzen.</p>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="phone sticky-phone">
+          <div class="phone-top"></div>
+          <div class="phone-screen" id="phoneScreen">
+            <video src="./images/App_Video.mp4" autoplay muted loop playsinline aria-label="App Demo"></video>
+          </div>
+          <div class="phone-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title">Features</h2>
+      <div class="features-layout">
+        <div>
+          <!-- Feature Item Template: add class 'open' if you want one opened initially -->
+          <article class="feature-item" data-image="images/Login_Screen.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Login und Registrierung</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Sichere Registrierung und Anmeldung; Daten werden verschlüsselt gespeichert.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/Main_Overview_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Main Screen</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Dashboard mit Einnahmen, Ausgaben, Kontostand. Transaktionen per Swipe löschen.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/Main_Add_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Transaktionen hinzufügen</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Schnelles Hinzufügen von Einnahmen/Ausgaben; Kategorien für bessere Ordnung.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/Search_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Transaktionen suchen</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Filter nach Beschreibung, Betrag, Kategorie oder Datum.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/Monthly_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Monatliche Übersicht</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Alle Transaktionen des Monats auf einen Blick – für detaillierte Auswertungen.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/NtoG_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Brutto/Netto Rechner</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Brutto‑Netto‑Umrechnung inkl. Steuern und Sozialversicherungen.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/DCA-Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">DCA Calculator</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>„What‑if“-Analysen für Investitionen über Dollar‑Cost‑Averaging.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/Goals_Overview_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Goals Übersicht</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Ziele setzen und Fortschritt verfolgen – inkl. Visualisierung des verbleibenden Betrags.</p>
+            </div>
+          </article>
+
+          <article class="feature-item" data-image="images/Profil_Img.png">
+            <div class="feature-header">
+              <h3 class="feature-title">Profil</h3>
+              <span class="feature-arrow">▼</span>
+            </div>
+            <div class="feature-description">
+              <p>Level‑Fortschritt basierend auf Sparleistung, Logout‑Funktion.</p>
+            </div>
+          </article>
+        </div>
+        <div class="phone-container">
+          <div class="phone">
+            <div class="phone-top"></div>
+            <div class="phone-screen">
+              <img id="featureImage" src="images/Logo_Screen.png" alt="Feature Screenshot" />
+            </div>
+            <div class="phone-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section id="challenges" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title">Challenges</h2>
+      <div class="grid-4">
+        <div class="box">
+          <h3>Kotlin &amp; Jetpack Compose</h3>
+          <p>Neue Technologie – Einarbeitung in moderne Android‑Patterns und Best Practices.</p>
+        </div>
+        <div class="box">
+          <h3>Datenbank‑Verknüpfung</h3>
+          <p>Heterogene Daten je Screen – Architektur der Datenflüsse und Repositories.</p>
+        </div>
+        <div class="box">
+          <h3>GitLab</h3>
+          <p>Erste Team‑Workflows (Branches, Merges, Reviews) – saubere Kollaboration.</p>
+        </div>
+        <div class="box">
+          <h3>Zeitaufwand</h3>
+          <p>Parallel zu Projekten/Prüfungen – Planung, Priorisierung und Fokus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title">Erfahrung</h2>
+      <div class="grid-3">
+        <div class="box">
+          <h3>App &amp; Datenbank Entwicklung</h3>
+          <p>Komplette Android‑App mit Kotlin/Compose und Anbindung an Microsoft SQL – von Datenmodell bis UI.</p>
+        </div>
+        <div class="box">
+          <h3>Teamarbeit</h3>
+          <p>Kommunikation, Aufgabenaufteilung und Versionierung mit GitLab für effiziente Zusammenarbeit.</p>
+        </div>
+        <div class="box">
+          <h3>Zeitmanagement &amp; Organisation</h3>
+          <p>Effiziente Planung bei mehreren parallelen Projekten und Prüfungsphasen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="muted">&copy; 2025 f:freedom – Projektseite</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-up Observer
+    const observer = new IntersectionObserver((entries)=>{
+      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('appear'); observer.unobserve(e.target); } }
+    },{threshold:.12});
+    document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+
+    // Active Nav Link
+    const sections=[...document.querySelectorAll('section')];
+    const navLinks=[...document.querySelectorAll('.nav-links a')];
+    const setActive=()=>{ const y=window.scrollY+76; let id='home'; for(const s of sections){ if(y>=s.offsetTop) id=s.id;} navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id)); };
+    document.addEventListener('scroll', setActive, {passive:true}); setActive();
+
+    // Burger Menü
+    const body=document.body; const btn=document.querySelector('.menu-toggle'); const nav=document.querySelector('.nav-links');
+    btn?.addEventListener('click',()=>{ const open=body.classList.toggle('nav-open'); btn.setAttribute('aria-expanded',String(open)); });
+    nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(body.classList.contains('nav-open')){ body.classList.remove('nav-open'); btn?.setAttribute('aria-expanded','false'); }}));
+
+    // Feature click handling (arrow + image + description)
+    const featureCards=[...document.querySelectorAll('.feature-item')];
+    const featureImg=document.getElementById('featureImage');
+    featureCards.forEach(card=>{
+      const header = card.querySelector('.feature-header');
+      header.addEventListener('click',()=>{
+        const isOpen = card.classList.toggle('open');
+        // Arrow symbol shows ▼ by default; rotate on open
+        const arrow = card.querySelector('.feature-arrow');
+        if (arrow) { arrow.textContent = '▼'; }
+        // Toggle description
+        document.querySelectorAll('.feature-item .feature-description').forEach(d=>{ if(d!==card.querySelector('.feature-description')) d.style.display='none'; });
+        document.querySelectorAll('.feature-item').forEach(c=>{ if(c!==card) c.classList.remove('open'); });
+        const desc = card.querySelector('.feature-description');
+        if (desc) desc.style.display = isOpen ? 'block' : 'none';
+        // Update phone image
+        const img = card.getAttribute('data-image');
+        if (featureImg && img) { featureImg.src = img; featureImg.alt = card.querySelector('.feature-title')?.textContent || 'Feature'; }
+      });
+    });
+  </script>
+</body>
 </html>
