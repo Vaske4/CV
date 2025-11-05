@@ -4,13 +4,12 @@ Willkommen auf meinem Portfolio!
 Ich studiere Wirtschaftsinformatik an der FH Joanneum und interessiere mich besonders für die Verbindung zwischen IT und Wirtschaft.  
 
 ## Über mich  
-Aktuell besuche ich das 4 Semester. 
+Aktuell besuche ich das 5 Semester. 
 Mein Fokus liegt auf Softwareentwicklung, Datenanalyse und der Optimierung von Geschäftsprozessen durch digitale Lösungen. 
 
 ## Fähigkeiten  
-- **Programmierung:** Python, Go, Kotlin, Javascript
+- **Programmierung:** Python, Go, Kotlin, Javascript, Angular, Node, React
 - **Datenbanken:** MySQL, MSSQL & Oracle
-- **Webentwicklung:** HTML/CSS
 
 ## Projekte  
 ### Budget Tracker App
