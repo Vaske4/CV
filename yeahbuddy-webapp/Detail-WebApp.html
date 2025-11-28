@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YeahBuddy - WebApp Details</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Montserrat:wght@700&family=Inter:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="detail-page">
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Nikola <span>Vasic</span></div>
+                <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"
+                    aria-label="Menü öffnen/schließen">☰ Menü</button>
+                <ul id="primary-navigation" class="nav-links">
+                    <li><a href="./index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="detail-main">
+        <div class="container detail-grid">
+            <!-- Left Column: Content -->
+            <div class="content-column">
+                <section class="detail-section">
+                    <h2>Techstack</h2>
+                    <p class="section-subtitle">Technologien, die für das Projekt verwendet wurden.</p>
+                    <div class="tags-container">
+                        <span class="tag">IntelliJ</span>
+                        <span class="tag">Gradle</span>
+                        <span class="tag">Kotlin</span>
+                        <span class="tag">Spring</span>
+                    </div>
+                </section>
+
+                <section class="detail-section">
+                    <h2>Learnings</h2>
+                    <p class="section-subtitle">Wichtige Erkenntnisse und Fähigkeiten.</p>
+                    <ul class="detail-list">
+                        <li>Routing</li>
+                        <li>Using the MVC method</li>
+                        <li>Verknüpfung mit einer Datenbank</li>
+                        <li>Wie REST-API funktioniert</li>
+                        <li>SQL Injection in HTML</li>
+                        <li>Dynamische Variablen in HTML</li>
+                        <li>Bootstrap</li>
+                        <li>Gemeinsames Arbeiten mit GitLab</li>
+                    </ul>
+                </section>
+
+                <section class="detail-section">
+                    <h2>Challenges</h2>
+                    <p class="section-subtitle">Herausforderungen während der Entwicklung.</p>
+                    <ul class="detail-list">
+                        <li>Verknüpfung von Features</li>
+                        <li>Datenbank richtig nutzen</li>
+                        <li>Mergen bei GitLab</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- Right Column: Tablet Mockup -->
+            <div class="tablet-column">
+                <div class="tablet-mockup">
+                    <div class="tablet-camera"></div>
+                    <div class="tablet-screen">
+                        <!-- Video -->
+                        <video src="./assets/video_yb.mp4" autoplay muted loop playsinline class="tablet-video"></video>
+                    </div>
+                </div>
+                <div class="tablet-home-button"></div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Burger Menü Logic
+        const body = document.body;
+        const btn = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-links');
+
+        btn?.addEventListener('click', () => {
+            const open = body.classList.toggle('nav-open');
+            btn.setAttribute('aria-expanded', String(open));
+        });
+
+        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            if (body.classList.contains('nav-open')) {
+                body.classList.remove('nav-open');
+                btn?.setAttribute('aria-expanded', 'false');
+            }
+        }));
+    </script>
+</body>
+
+</html>

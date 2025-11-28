@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Three.js Scroll Animation</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+          "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+
+<body id="home">
+  <header id="header">
+    <div class="container">
+      <nav>
+        <div class="logo">Nikola <span>Vasic</span></div>
+        <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"
+          aria-label="Menü öffnen/schließen">☰ Menü</button>
+        <ul id="primary-navigation" class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="./Detail-WebApp.html">Details</a></li>
+          <li><a href="#footer">Explore more</a></li>
+          <li><a href="../index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <canvas id="three-canvas"></canvas>
+
+  <div id="scroll-hint" class="scroll-hint">
+    <div class="scroll-hint-text">Scroll</div>
+    <div class="scroll-hint-arrow">↓</div>
+  </div>
+
+  <div id="container">
+    <div class="hero-panel" data-screen="./assets/logo.png">
+      <h1></h1>
+      <p></p>
+    </div>
+
+    <div class="hero-panel" data-screen="./assets/yeahbuddy_logo_img.png">
+      <h1>yeahbuddy</h1>
+      <p>Web-application</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/login_yb.png">
+      <h2>Login Screen</h2>
+      <p>Hier authentifizieren sich die Nutzer, um auf ihre persönlichen Daten zuzugreifen.</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/registry_yb.png">
+      <h2>Registrierung</h2>
+      <p>Neue Nutzer erstellen hier ihr Profil und legen ihre Basisdaten fest.</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/main_menu_yb.png">
+      <h2>Main Menu</h2>
+      <p>Das Dashboard bietet einen schnellen Überblick über alle Funktionen der App.</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/sidebar_yb.png">
+      <h2>Sidebar</h2>
+      <p>Über die Sidebar findet man das Profil und den Logout button.</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/workout_history_yb.png">
+      <h2>Workout History</h2>
+      <p>Diese Ansicht zeigt eine Liste aller absolvierten Workouts.</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/my_workouts_yb.png">
+      <h2>My Workouts</h2>
+      <p>Hier können Nutzer ihre individuellen Trainingspläne aussuchen und das Workout starten.</p>
+    </div>
+
+    <div class="content-panel" data-screen="./assets/workout_live_yb.png">
+      <h2>Live workout</h2>
+      <p>Der Live-Modus unterstützt den Nutzer aktiv während der Durchführung einer Übung.</p>
+    </div>
+
+    <div class="hero-panel" id="footer" data-screen="./assets/yeahbuddy_logo_img.png">
+      <a href="./Detail-WebApp.html">
+        <h2>Details zur WebApp</h2>
+      </a>
+    </div>
+  </div>
+
+  <script type="module" src="index.js"></script>
+  <script>
+    // Burger Menü Logic
+    const body = document.body;
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+
+    btn?.addEventListener('click', () => {
+      const open = body.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+
+    nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (body.classList.contains('nav-open')) {
+        body.classList.remove('nav-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+    }));
+  </script>
+</body>
+
+</html>
