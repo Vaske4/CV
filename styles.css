@@ -7,20 +7,20 @@
     --muted: #475569;
     --brand: #0ea5e9;
     --brand-2: #22d3ee;
-    --ring: rgba(14,165,233,.22);
+    --ring: rgba(14, 165, 233, .22);
     --container: 1100px;
     --radius: 16px;
-    --shadow: 0 16px 40px rgba(15,23,42,.08);
-    --shadow-soft: 0 8px 20px rgba(15,23,42,.06);
+    --shadow: 0 16px 40px rgba(15, 23, 42, .08);
+    --shadow-soft: 0 8px 20px rgba(15, 23, 42, .06);
 }
 
 /* Base Styles */
-* { 
-    box-sizing: border-box; 
+* {
+    box-sizing: border-box;
 }
 
-html { 
-    scroll-behavior: smooth; 
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -33,26 +33,26 @@ body {
     font-size: 18px;
 }
 
-a { 
-    color: inherit; 
-    text-decoration: none; 
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-img { 
-    max-width: 100%; 
-    display: block; 
+img {
+    max-width: 100%;
+    display: block;
     height: auto;
     border-radius: var(--radius);
 }
 
 /* Layout Components */
-.container { 
+.container {
     width: min(100%, var(--container));
     margin-inline: auto;
     padding-inline: 1.2rem;
 }
 
-.section { 
+.section {
     padding-block: clamp(4rem, 8vw, 8rem);
     margin-bottom: 3rem;
 }
@@ -64,8 +64,8 @@ header {
     z-index: 50;
     backdrop-filter: saturate(140%) blur(10px);
     -webkit-backdrop-filter: saturate(140%) blur(10px);
-    background: rgba(255,255,255,.85);
-    border-bottom: 1px solid rgba(15,23,42,.08);
+    background: rgba(255, 255, 255, .85);
+    border-bottom: 1px solid rgba(15, 23, 42, .08);
 }
 
 nav {
@@ -88,11 +88,13 @@ nav {
 /* Gradient-Text nur wenn unterstützt */
 @supports (-webkit-background-clip: text) or (background-clip: text) {
     .logo span {
-    background-image: linear-gradient(90deg, var(--brand), var(--brand-2));
-    -webkit-background-clip: text; /* Safari/Chrome */
-    background-clip: text;         /* Standard */
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+        background-image: linear-gradient(90deg, var(--brand), var(--brand-2));
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        background-clip: text;
+        /* Standard */
+        -webkit-text-fill-color: transparent;
+        color: transparent;
     }
 }
 
@@ -116,12 +118,12 @@ nav {
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--text);
-    background: rgba(14,165,233,.14);
+    background: rgba(14, 165, 233, .14);
 }
 
 .menu-toggle {
     display: none;
-    border: 1px solid rgba(14,165,233,.5);
+    border: 1px solid rgba(14, 165, 233, .5);
     border-radius: 12px;
     padding: .6rem .8rem;
     background: #fff;
@@ -159,7 +161,7 @@ nav {
     width: 10px;
     height: 10px;
     border-radius: 999px;
-    background: linear-gradient(90deg,var(--brand),var(--brand-2));
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
     box-shadow: 0 0 24px var(--ring);
 }
 
@@ -192,27 +194,27 @@ nav {
 
 /* Skills */
 /* Skills */
-.skills-grid { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 1.5rem; 
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.skill-card { 
-    background: var(--card); 
-    border: 1px solid rgba(14,165,233,.5); 
-    border-radius: var(--radius); 
-    padding: 1.5rem; 
-    box-shadow: var(--shadow-soft); 
-    transition: transform .2s ease; 
+.skill-card {
+    background: var(--card);
+    border: 1px solid rgba(14, 165, 233, .5);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform .2s ease;
 }
 
-.skill-card:hover { 
-    transform: translateY(-2px); 
-    box-shadow: var(--shadow); 
+.skill-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
-.skill-name { 
+.skill-name {
     margin: 0 0 1rem;
     font-size: 1.3rem;
     font-weight: 600;
@@ -226,14 +228,14 @@ nav {
     margin-bottom: 0.75rem;
 }
 
-.skill-item { 
+.skill-item {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
     margin: 0;
-    background: rgba(14,165,233,.08);
-    border: 1px solid rgba(14,165,233,.25);
+    background: rgba(14, 165, 233, .08);
+    border: 1px solid rgba(14, 165, 233, .25);
     border-radius: 8px;
     color: var(--text);
     font-size: 1.05rem;
@@ -268,9 +270,23 @@ nav {
 }
 
 /* Timeline */
-.timeline { position: relative; margin-left: .6rem; }
-.timeline::before { content: ""; position: absolute; left: 10px; top: 4px; bottom: 4px; width: 2px; background: linear-gradient(var(--brand), var(--brand-2)); opacity: .65; }
-.timeline-item { 
+.timeline {
+    position: relative;
+    margin-left: .6rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: linear-gradient(var(--brand), var(--brand-2));
+    opacity: .65;
+}
+
+.timeline-item {
     position: relative;
     padding-left: 2.5rem;
     margin: 2rem 0;
@@ -296,35 +312,47 @@ nav {
     grid-template-columns: 1fr 1.2fr;
     gap: 1rem;
     background: var(--card);
-    border: 1px solid rgba(14,165,233,.5);
+    border: 1px solid rgba(14, 165, 233, .5);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 12rem;
 }
 
 .project-card-link:hover .project-card {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .project-image {
-    background: radial-gradient(600px 300px at 30% 20%, rgba(14,165,233,.12), transparent 50%);
-    display: grid;
-    place-items: center;
+    background: radial-gradient(600px 300px at 30% 20%, rgba(14, 165, 233, .12), transparent 50%);
+    display: flex;
+    /* Changed from grid to flex for better control */
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
+    overflow: hidden;
+    /* Ensures nothing sticks out */
+    height: 100%;
+    /* Force it to fill the card height */
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    max-height: 800px;
+    /* Keeps aspect ratio and fits inside */
+    max-height: 100%;
+    /* Ensure it doesn't exceed parent height */
+    max-width: 100%;
+    /* Ensure it doesn't exceed parent width */
 }
 
 /* Responsive */
 @media (max-width: 640px) {
     .project-image img {
-        max-height: 400px; /* Auch mobile Version größer (war 200px) */
+        max-height: 400px;
+        /* Auch mobile Version größer (war 200px) */
     }
 }

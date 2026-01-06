@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS Projekt Showcase - Nikola Vasic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GRUNDLEGENDE STYLES (Reset) --- */
+        :root {
+            --container: 1200px;
+            --muted: #64748b;
+            --text: #0f172a;
+            --brand: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            /* Sehr helles Grau/Blau für modernen Look */
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* --- DEIN HEADER CODE --- */
+        header {
+            position: fixed;
+            /* Changed to fixed to stay on top like previous nav */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: saturate(140%) blur(10px);
+            -webkit-backdrop-filter: saturate(140%) blur(10px);
+            background: rgba(255, 255, 255, .85);
+            border-bottom: 1px solid rgba(15, 23, 42, .08);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            min-height: 64px;
+        }
+
+        .container {
+            width: min(100%, var(--container));
+            margin-inline: auto;
+            padding-inline: 1.2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #0f172a;
+        }
+
+        .logo span {
+            color: #3b82f6;
+            /* Akzentfarbe Blau */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: .6rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+            padding: .8rem 1.2rem;
+            border-radius: 12px;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            background: rgba(14, 165, 233, .14);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #3b82f6;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 1px solid rgba(14, 165, 233, .5);
+            border-radius: 12px;
+            padding: .6rem .8rem;
+            background: #fff;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        /* --- HAUPT-LAYOUT (Split Screen) --- */
+        main {
+            max-width: 1400px;
+            /* Etwas breiter für gute Video-Darstellung */
+            margin: 0 auto;
+            padding: 120px 20px 60px;
+            /* Oben 120px Platz wegen fixiertem Header */
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            /* Links 40%, Rechts 60% Platz */
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* --- LINKE SEITE: KARTEN (Skills & Challenges) --- */
+        .info-column {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #0f172a;
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Unterschiedliche Farben für Skills und Challenges */
+        .skill-card h3::before {
+            content: '✓';
+            color: #22c55e;
+            /* Grün */
+            font-weight: bold;
+        }
+
+        .challenge-card h3::before {
+            content: '!';
+            background: #f59e0b;
+            /* Orange */
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        /* --- RECHTE SEITE: MONITOR DISPLAY --- */
+        /* --- RECHTE SEITE: LAPTOP DISPLAY (Optimiert) --- */
+        .display-column {
+            position: sticky;
+            top: 100px;
+            width: 100%;
+
+            /* HIER IST DER TRICK: */
+            /* Wir begrenzen die Breite des Laptops. */
+            /* Dadurch wird das 1920er Video verkleinert dargestellt -> Maximale Schärfe */
+            max-width: 750px;
+
+            margin-left: auto;
+            /* Schiebt es nach rechts, falls Platz ist (optional) */
+        }
+
+        .laptop-wrapper {
+            width: 100%;
+            margin: 0 auto;
+            /* Optional: Ein leichter Schlagschatten lässt es "poppen" */
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+        }
+
+        /* 1. Der Deckel (Schwarzer Rahmen) */
+        .laptop-lid {
+            background: #0d1117;
+            /* Sehr dunkles Grau/Schwarz */
+            border-radius: 12px 12px 0 0;
+            /* Runde Ecken nur oben */
+            padding: 3% 3% 0 3%;
+            /* Relativer Rahmen (Bezel) basierend auf Größe */
+            position: relative;
+            box-shadow: inset 0 0 0 2px #333;
+            /* Leichter Innen-Rand für 3D Effekt */
+        }
+
+        /* Die kleine Kamera oben in der Mitte */
+        .laptop-camera {
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+            position: absolute;
+            top: 1.5%;
+            /* Positioniert im oberen Rahmen */
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 2px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 2. Der Bildschirm selbst */
+        .laptop-screen {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            /* Schwarzer Hintergrund falls das Video nicht 100% passt */
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            /* Zentriert das Video perfekt */
+            align-items: center;
+            justify-content: center;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            /* WICHTIG: 'contain' verhindert, dass der Browser reinzoomt/abschneidet */
+            object-fit: contain;
+            display: block;
+        }
+
+        /* 3. Der untere Teil (Base) - KORRIGIERT */
+        .laptop-base {
+            width: 115%;
+            /* Die Basis ist breiter als der Bildschirm */
+            height: 14px;
+            background: #e2e8f0;
+
+            /* NEUE ZENTRIERUNG: */
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-left: 0;
+            /* Altes margin entfernen */
+
+            border-radius: 0 0 10px 10px;
+            z-index: 1;
+            background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Die Kerbe zum Öffnen bleibt gleich */
+        .laptop-base::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15%;
+            height: 4px;
+            background: #94a3b8;
+            border-radius: 0 0 4px 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Nikola <span>Vasic</span></div>
+                <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"
+                    aria-label="Menü öffnen/schließen">☰ Menü</button>
+                <ul id="primary-navigation" class="nav-links">
+                    <li><a href="../../index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="info-column">
+
+            <div class="card-group">
+                <h2 class="section-title">Was ich gelernt habe</h2>
+                <div class="card-grid">
+                    <article class="card skill-card">
+                        <h3>Node + Express App Setup</h3>
+                        <p>Initialisierung eines Node.js Servers, Konfiguration von npm Packages und Aufsetzen einer
+                            skalierbaren Express-Applikation.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>TypeScript & Modern JS (ES6+)</h3>
+                        <p>Einsatz von TypeScript für Typsicherheit, Interfaces und moderne ES6+ Features wie Arrow
+                            Functions und Destructuring.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Routing / Endpoints</h3>
+                        <p>Definition von RESTful Routen, HTTP-Methoden (GET, POST, PUT, DELETE) und Modularisierung mit
+                            Express Router.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Handling Requests & Responses</h3>
+                        <p>Verarbeitung eingehender Requests (Body, Query, Params) und Senden korrekter HTTP-Responses
+                            und Status-Codes.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Request Validation</h3>
+                        <p>Validierung von User-Input mittels Middleware (z.B. express-validator) zur Sicherstellung der
+                            Datenintegrität.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Database Communication</h3>
+                        <p>Integration persistenter Datenspeicherung mit NoSQL (MongoDB/Mongoose) und relationalen
+                            Datenbanken (MySQL/Sequelize).</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Files, Uploads, Downloads</h3>
+                        <p>Implementierung von Datei-Uploads (z.B. mit Multer), Dateiverwaltung und Bereitstellung von
+                            Downloads.</p>
+                    </article>
+
+                    <article class="card skill-card">
+                        <h3>Auth & REST Security</h3>
+                        <p>Implementierung von Authentication, Session-Handling über Cookies, CSRF-Protection und JWT
+                            (Authentication Tokens).</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="card-group">
+                <h2 class="section-title" style="border-color: #f59e0b;">Herausforderungen & Lösungen</h2>
+                <div class="card-grid">
+                    <article class="card challenge-card">
+                        <h3>Asynchrone Datenverarbeitung</h3>
+                        <p>Eine spannende Herausforderung war es, das asynchrone Wesen von Node.js vollständig zu
+                            durchdringen und eine effiziente Daten-Synchronisation mit dem Frontend zu gewährleisten.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="display-column">
+            <div class="laptop-wrapper">
+                <div class="laptop-lid">
+                    <div class="laptop-camera"></div>
+                    <div class="laptop-screen">
+                        <video width="1920" height="1080" autoplay muted loop playsinline>
+                            <source src="./media/ShopProject1_Movie.mp4" type="video/mp4">
+                            Dein Browser unterstützt dieses Video nicht.
+                        </video>
+                    </div>
+                </div>
+                <div class="laptop-base"></div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
