@@ -1,0 +1,21 @@
+<!doctype html><meta charset="utf-8"><pre id="out">pending</pre>
+<script>
+  localStorage.setItem('siteLang', 'de');
+  const f = document.createElement('iframe');
+  f.src = 'kubernetes_pm_page/kubernetes_pm.html';
+  f.style.cssText = 'width:1200px;height:600px;border:0;position:absolute;left:-9999px';
+  f.onload = () => setTimeout(() => {
+    const d = f.contentDocument;
+    const L = [];
+    L.push('KEY|htmlLang=' + d.documentElement.lang);
+    L.push('KEY|title=' + d.title);
+    L.push('KEY|h1=' + d.querySelector('h1').textContent.trim());
+    L.push('KEY|h1span=' + (d.querySelector('h1 span') ? d.querySelector('h1 span').textContent : 'MISSING'));
+    L.push('KEY|nav2=' + d.querySelectorAll('.nav-links a')[1].textContent);
+    L.push('KEY|back=' + d.querySelector('.back-link').textContent.trim());
+    L.push('KEY|badge=' + d.querySelector('.role-badge').textContent.trim());
+    L.push('KEY|dePressed=' + d.querySelector('[data-lang=de]').getAttribute('aria-pressed'));
+    document.getElementById('out').textContent = L.join('\n');
+  }, 700);
+  document.body.appendChild(f);
+</script>

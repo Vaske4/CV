@@ -9,7 +9,9 @@
     content="University project: deploying a web application on Kubernetes with a GitLab CI/CD pipeline and GitOps delivery via ArgoCD and Rancher Fleet — led as Team Lead with Jira, Kanban, epics and user stories." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./kubernetes_pm.css" />
 </head>
 
@@ -27,13 +29,14 @@
             <li><a href="#leadership" data-i18n="nav_leadership">Leadership</a></li>
             <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
             <li><a href="#challenges" data-i18n="nav_challenges">Challenges</a></li>
-            <li><a href="../index.html" class="back-link" data-i18n="nav_back" data-i18n-aria="nav_back_aria"
-                aria-label="Back to portfolio">← Back</a></li>
           </ul>
           <div class="lang-switch" role="group" aria-label="Language / Sprache">
             <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
             <button type="button" data-lang="de" aria-pressed="false">DE</button>
           </div>
+          <!-- Outside .nav-links so it stays reachable when the burger menu is closed -->
+          <a href="../index.html" class="back-link" data-i18n="nav_back" data-i18n-aria="nav_back_aria"
+            aria-label="Back to portfolio">← Back</a>
           <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" data-i18n="menu_label"
             data-i18n-aria="menu_aria" aria-label="Open/close menu">☰ Menu</button>
         </div>
@@ -465,7 +468,7 @@
         ch3_d: "Holding a clear picture of the whole project and its progress at all times, while still contributing to the technical work myself.",
 
         concl_title: "Conclusion",
-        concl_quote: "Despite these challenges, I genuinely enjoyed leading this great group — and the project itself was fascinating from start to finish.",
+        concl_quote: "Despite the challenges, I genuinely enjoyed leading this great group — and the project itself was fascinating from start to finish.",
         footer_text: "© 2025 Kubernetes & Project Management — Project page"
       },
       de: {
@@ -574,7 +577,7 @@
         ch3_d: "Jederzeit ein klares Bild vom Gesamtprojekt und dessen Fortschritt zu haben und gleichzeitig selbst technisch beizutragen.",
 
         concl_title: "Fazit",
-        concl_quote: "Trotz dieser Herausforderungen hat es mir große Freude bereitet, diese großartige Gruppe zu leiten — und das Projekt selbst war von Anfang bis Ende hochinteressant.",
+        concl_quote: "Trotz der Herausforderungen hat es mir große Freude bereitet, diese großartige Gruppe zu leiten — und das Projekt selbst war von Anfang bis Ende hochinteressant.",
         footer_text: "© 2025 Kubernetes & Projektmanagement — Projektseite"
       }
     };
@@ -633,11 +636,14 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Active nav link on scroll
+    // Active nav link on scroll + lift the pill's shadow once the page scrolls
     const sections = [...document.querySelectorAll('section')];
     const navLinks = [...document.querySelectorAll('.nav-links a')];
+    const siteNav = document.querySelector('header nav');
     const setActive = () => {
-      const y = window.scrollY + 76; // header offset
+      siteNav.classList.toggle('scrolled', window.scrollY > 20);
+
+      const y = window.scrollY + 96; // header offset
       let id = 'home';
       for (const s of sections) {
         if (y >= s.offsetTop) id = s.id;
