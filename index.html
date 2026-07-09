@@ -1,358 +1,495 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nikola Vasic - Portfolio</title>
   <meta name="description"
-    content="Portfolio von Nikola Vasic – Wirtschaftsinformatik-Student. Projekte, Ausbildung, Skills und Kontakt." />
+    content="Portfolio of Nikola Vasic – Business Informatics student and aspiring Product Owner. Projects, education, skills and contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-  <!-- Header -->
-  <header id="header">
+  <!-- ============ NAV ============ -->
+  <div class="nav-wrap">
     <div class="container">
-      <nav>
-        <div class="logo">Lebens<span>lauf</span></div>
-        <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"
-          aria-label="Menü öffnen/schließen">☰ Menü</button>
-        <ul id="primary-navigation" class="nav-links" aria-label="Hauptnavigation">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Über mich</a></li>
-          <li><a href="#education">Ausbildung</a></li>
-          <li><a href="#projects">Projekte</a></li>
-          <li><a href="#contact">Kontakt</a></li>
+      <nav class="site-nav">
+        <a href="#home" class="brand-mark serif">Nikola <span>Vasic</span></a>
+
+        <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
+          <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#education" data-i18n="nav_education">Education</a></li>
+          <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         </ul>
+
+        <div class="nav-cluster">
+          <div class="lang-switch" role="group" aria-label="Language / Sprache">
+            <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+            <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          </div>
+          <a href="#contact" class="btn-hello" data-i18n="say_hello">Say hello</a>
+          <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" data-i18n="menu_label"
+            data-i18n-aria="menu_aria" aria-label="Open/close menu">☰ Menu</button>
+        </div>
       </nav>
     </div>
-  </header>
+  </div>
 
-  <!-- Hero -->
-  <section id="home" class="section">
+  <!-- ============ HERO ============ -->
+  <section id="home">
     <div class="container hero">
-      <div class="hero-text fade-up">
-        <div class="eyebrow"><span class="dot"></span> Willkommen! 👋</div>
-        <h1>Hallo, ich bin <span style="color:var(--brand)">Nikola Vasic</span></h1>
-        <p>Wirtschaftsinformatik-Student mit Leidenschaft für innovative IT-Lösungen und datengetriebenen Strategien.
-          Ich verbinde technisches Know-how mit betriebswirtschaftlichem Verständnis.</p>
-        <div class="actions">
-          <a href="#projects" class="btn btn-primary">Meine Projekte</a>
-          <a href="#contact" class="btn btn-outline" aria-label="Kontakt aufnehmen">Kontakt</a>
+      <div class="fade-up">
+        <div class="eyebrow">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="hero_eyebrow">Welcome — nice to meet you</span>
+        </div>
+        <h1 class="serif" data-i18n-html="hero_title">A developer with a <em>leadership</em> mindset.</h1>
+        <p class="hero-lede" data-i18n="hero_lede">I'm Nikola — business informatics student at FH JOANNEUM, Graz. I
+          turn requirements into user stories, user stories into software, and teams into shipping teams.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">My projects</a>
+          <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact" data-i18n-aria="hero_btn_contact_aria"
+            aria-label="Get in touch">Contact</a>
+        </div>
+        <div class="stats">
+          <div>
+            <div class="stat-num serif">6+</div>
+            <div class="stat-label" data-i18n="stat_langs">Languages &amp; frameworks</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div>
+            <div class="stat-num serif">4</div>
+            <div class="stat-label" data-i18n="stat_projects">Shipped projects</div>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div>
+            <div class="stat-num serif">1</div>
+            <div class="stat-label" data-i18n="stat_lead">Team lead role</div>
+          </div>
         </div>
       </div>
-      <div class="hero-card avatar-wrap fade-up" style="aspect-ratio:1/1">
-        <img src="./Profil_Bild.jpeg" alt="Profilbild von Nikola Vasic" loading="lazy" />
+
+      <div class="hero-photo fade-up">
+        <div class="photo-frame">
+          <img src="./Profil_Bild.jpeg" alt="Portrait of Nikola Vasic" data-i18n-alt="hero_img_alt" width="352"
+            height="420" />
+        </div>
+        <div class="photo-badge" data-i18n="open_badge">Open to Work</div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ============ ABOUT ============ -->
   <section id="about" class="section">
-    <div class="container split">
-      <div class="fade-up">
-        <h2 class="section-title">Über mich</h2>
-        <h3 class="subtle">Wirtschaftsinformatiker mit Fokus auf Prozessoptimierung</h3>
-        <p>Als Student der Wirtschaftsinformatik an der FH Joanneum verbinde ich meine Leidenschaft für innovative
-          Technologien mit einem fundierten Verständnis betriebswirtschaftlicher Prozesse.</p>
-        <p>Mein Ziel ist es, digitale Lösungen zu entwickeln, die Unternehmen dabei helfen, datenbasierte Entscheidungen
-          zu treffen und ihre Geschäftsprozesse zu optimieren. Besonders interessiere ich mich für die Webentwicklung.
-        </p>
-        <p>Neben meinem Studium erweitere ich kontinuierlich meine praktischen Fähigkeiten durch Projekte.</p>
-      </div>
-      <div class="fade-up">
-        <div class="skills-grid">
-          <div class="skill-card">
-            <h4 class="skill-name">Programmierung</h4>
-            <div class="skill-items">
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"
-                  class="skill-logo">
-                <span>Node.js</span>
-              </div>
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
-                  alt="Angular" class="skill-logo">
-                <span>Angular</span>
-              </div>
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
-                  class="skill-logo">
-                <span>React</span>
-              </div>
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
-                  class="skill-logo">
-                <span>Python</span>
-              </div>
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin"
-                  class="skill-logo">
-                <span>Kotlin</span>
-              </div>
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go"
-                  class="skill-logo">
-                <span>Go</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <h4 class="skill-name">SQL & Datenbanken</h4>
-            <div class="skill-items">
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
-                  class="skill-logo">
-                <span>MySQL</span>
-              </div>
-              <div class="skill-item">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
-                  alt="MSSQL" class="skill-logo">
-                <span>MSSQL</span>
-              </div>
-              <div class="skill-item">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" alt="Oracle"
-                  class="skill-logo">
-                <span>Oracle</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="skill-card">
-            <h4 class="skill-name">Projektmanagement</h4>
-            <div class="skill-items">
-              <div class="skill-item">
-                <svg class="skill-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                <span>Scrum</span>
-              </div>
-              <div class="skill-item">
-                <svg class="skill-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                  <line x1="9" y1="3" x2="9" y2="21"></line>
-                  <line x1="15" y1="3" x2="15" y2="21"></line>
-                </svg>
-                <span>Kanban</span>
-              </div>
-              <div class="skill-item">
-                <svg class="skill-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2">
-                  <path
-                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-                  </path>
-                </svg>
-                <span>MS Project</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ausbildung -->
-  <section id="education" class="section">
-    <div class="container fade-up">
-      <h2 class="section-title">Ausbildung & Werdegang</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2023 - Heute</span>
-            <h3 class="timeline-title">Bachelor Wirtschaftsinformatik</h3>
-            <p class="timeline-description">FH JOANNEUM, Graz</p>
-            <p class="timeline-description">Schwerpunkte: Softwareentwicklung, Business Intelligence, Datenbanksysteme,
-              Wirtschaftsinformatik-Anwendungen</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <span class="timeline-date">2019 - 2022</span>
-            <h3 class="timeline-title">Matura</h3>
-            <p class="timeline-description">Handelsakademie, Graz</p>
-            <p class="timeline-description">Zweig: Digital Business</p>
-            <p class="timeline-description">Schwerpunkt: Softwareentwicklung, Betriebswirtschaftslehre und
-              Rechnungswesen</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projekte -->
-  <section id="projects" class="section">
-    <div class="container fade-up">
-      <h2 class="section-title">Meine Projekte</h2>
-      <div class="projects-grid">
-        <!-- Projekt 1 -->
-        <a href="./f_freedom_page/f_freedom_app.html" class="project-card-link" aria-labelledby="proj1-title">
-          <article class="project-card">
-            <div class="project-image">
-              <img src="./Logo_f_freedom.svg" alt="Logo_f_freedom" />
-            </div>
-            <div class="project-details">
-              <h3 id="proj1-title">FH‑Projekt – Budget Tracking App</h3>
-              <p>Die App hilft Nutzer:innen, Einnahmen und Ausgaben zu tracken, um jederzeit den Überblick über die
-                Finanzen zu behalten.</p>
-              <div class="project-tags">
-                <span class="project-tag">Kotlin,</span>
-                <span class="project-tag">MSSQL</span>
-              </div>
-            </div>
-          </article>
-        </a>
-
-        <!-- Projekt 2 -->
-        <a href="./yeahbuddy-webapp/index.html" class="project-card-link" aria-labelledby="proj2-title">
-          <article class="project-card">
-            <div class="project-image">
-              <img src="./yeahbuddy-webapp/assets/yeahbuddy_logo_img.png" alt="Logo_yeahbuddy" />
-            </div>
-            <div class="project-details">
-              <h3 id="proj2-title">YeahBuddy - Web Application</h3>
-              <p>Die Web-App hilft Nutzer:innen, ihre fitness Ziele zur erreichen.</p>
-              <div class="project-tags">
-                <span class="project-tag">Kotlin,</span>
-                <span class="project-tag">Spring,</span>
-                <span class="project-tag">MariaDB</span>
-              </div>
-            </div>
-          </article>
-        </a>
-        <!-- Projekt 3 -->
-        <a href="./Backend_Projects/NodeJS/NodeJsProject1.html" class="project-card-link" aria-labelledby="proj2-title">
-          <article class="project-card">
-            <div class="project-image">
-              <img src="./Backend_Projects/NodeJS/media/nodejs-logo.png" alt="Logo_yeahbuddy" />
-            </div>
-            <div class="project-details">
-              <h3 id="proj2-title">NodeJS Project</h3>
-              <p>Ein Webshop mit NodeJS, Express, MongoDB und REST API.</p>
-              <div class="project-tags">
-                <span class="project-tag">NodeJS,</span>
-                <span class="project-tag">Express,</span>
-                <span class="project-tag">MongoDB</span>
-                <span class="project-tag">REST API</span>
-                <span class="project-tag">JWT</span>
-              </div>
-            </div>
-          </article>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt -->
-  <section id="contact" class="section">
-    <div class="container fade-up">
-      <h2 class="section-title">Kontakt</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </div>
-          <div>
-            <h3 style="margin:.2rem 0">E-Mail</h3>
-            <p class="subtle"><a href="mailto:nikola.vasic.0209@gmail.com">nikola.vasic.0209@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-          </div>
-          <div>
-            <h3 style="margin:.2rem 0">Standort</h3>
-            <p class="subtle">Graz, Österreich</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
     <div class="container">
-      <div class="socials" aria-label="Soziale Profile">
-        <a href="https://www.linkedin.com/in/nikola-vasic-2881152a1/" target="_blank" rel="noreferrer noopener"
-          aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-            <rect x="2" y="9" width="4" height="12"></rect>
-            <circle cx="4" cy="4" r="2"></circle>
-          </svg>
-        </a>
-        <a href="https://github.com/Vaske4" target="_blank" rel="noreferrer noopener" aria-label="GitHub">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path
-              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-            </path>
-          </svg>
-        </a>
+      <div class="fade-up kicker" data-i18n="about_kicker">About me</div>
+      <h2 class="section-title serif fade-up" data-i18n="about_title">Business informatics, with a product owner's way of
+        thinking.</h2>
+
+      <div class="about-grid">
+        <!-- Product & leadership -->
+        <div class="card-ocker fade-up">
+          <div class="kicker-dark" data-i18n="pl_kicker">Product &amp; leadership</div>
+          <div class="pl-title serif" data-i18n="pl_title">Team lead on a Kubernetes project — backlog, epics and
+            stakeholder demos.</div>
+          <p class="pl-body" data-i18n="pl_body">I own the “why” as much as the “how”: prioritising work, writing user
+            stories and keeping the team aligned. Aiming for a Product Owner role alongside my Master's.</p>
+          <div class="chip-row">
+            <span class="chip-inset">Scrum</span>
+            <span class="chip-inset">Kanban</span>
+            <span class="chip-inset">MS Project</span>
+          </div>
+        </div>
+
+        <!-- Narrative -->
+        <div class="card about-text fade-up">
+          <p data-i18n="about_p1">As a business informatics student at FH JOANNEUM I connect a passion for technology
+            with a solid understanding of how businesses actually run.</p>
+          <p data-i18n="about_p2">My goal is to build digital solutions that help teams make data-driven decisions and
+            ship faster — with web development as my home turf.</p>
+        </div>
+
+        <!-- Stack -->
+        <div class="card fade-up">
+          <div class="kicker-soft" data-i18n="stack_kicker">Builds with</div>
+          <div class="stack-chips">
+            <span class="stack-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                alt="" loading="lazy">Node.js</span>
+            <span class="stack-chip"><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt=""
+                loading="lazy">Angular</span>
+            <span class="stack-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                alt="" loading="lazy">React</span>
+            <span class="stack-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                alt="" loading="lazy">Python</span>
+            <span class="stack-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg"
+                alt="" loading="lazy">Kotlin</span>
+            <!-- devicon has no generic SQL mark, so this one is drawn inline -->
+            <span class="stack-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>SQL</span>
+            <span class="stack-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+                alt="" loading="lazy">Jira</span>
+            <span class="stack-chip"><img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt=""
+                loading="lazy">Kubernetes</span>
+          </div>
+        </div>
       </div>
-      <p class="subtle">&copy; 2025 Nikola Vasic</p>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="section">
+    <div class="container">
+      <div class="fade-up kicker" data-i18n="edu_kicker">Education</div>
+      <h2 class="section-title serif fade-up" data-i18n="edu_title">Studies &amp; background</h2>
+
+      <div class="edu-item fade-up">
+        <div class="edu-years" data-i18n="edu1_years">2023 — today</div>
+        <div>
+          <div class="edu-degree serif" data-i18n="edu1_degree">BSc Business Informatics</div>
+          <div class="edu-school" data-i18n="edu1_school">FH JOANNEUM, Graz</div>
+          <div class="edu-detail" data-i18n="edu1_detail">Focus: software development, business intelligence, database
+            systems and business-informatics applications.</div>
+        </div>
+      </div>
+
+      <div class="edu-item fade-up">
+        <div class="edu-years" data-i18n="edu2_years">2019 — 2022</div>
+        <div>
+          <div class="edu-degree serif" data-i18n="edu2_degree">Matura, Digital Business</div>
+          <div class="edu-school" data-i18n="edu2_school">Handelsakademie, Graz</div>
+          <div class="edu-detail" data-i18n="edu2_detail">Focus: software development, business administration and
+            accounting.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-head fade-up">
+        <div class="kicker" data-i18n="proj_kicker">Selected projects</div>
+        <div class="section-note" data-i18n="proj_note">Leadership first, stack second</div>
+      </div>
+      <h2 class="section-title serif fade-up" data-i18n="proj_title">Things I've built and led</h2>
+
+      <div class="projects-grid">
+        <!-- Featured: Kubernetes / Team Lead -->
+        <a href="./kubernetes_pm_page/kubernetes_pm.html" class="project-featured fade-up">
+          <div class="badge-row">
+            <span class="badge badge-solid" data-i18n="badge_team_lead">Team Lead</span>
+            <span class="badge badge-outline" data-i18n="badge_featured">Featured</span>
+          </div>
+          <h3 class="serif">Kubernetes &amp; Project Management</h3>
+          <p data-i18n="k8s_body">Led a student team as Product-Owner-in-practice: Kanban board, epics and user stories
+            in Jira, GitOps deployment with ArgoCD and Rancher Fleet on Kubernetes.</p>
+          <div class="tag-row">
+            <span class="tag">Jira</span>
+            <span class="tag">Kanban</span>
+            <span class="tag">ArgoCD</span>
+            <span class="tag">GitLab CI</span>
+          </div>
+          <div class="case-link"><span data-i18n="read_case">Read the case study</span> <span aria-hidden="true">→</span>
+          </div>
+        </a>
+
+        <div class="project-list">
+          <a href="./f_freedom_page/f_freedom_app.html" class="project-card fade-up">
+            <h3 class="serif" data-i18n="proj1_name">f:freedom — Budget Tracking App</h3>
+            <div class="pc-desc" data-i18n="proj1_desc">Helps users track income and expenses to stay on top of their
+              finances at all times.</div>
+            <div class="pc-stack">Kotlin · MSSQL</div>
+          </a>
+
+          <a href="./yeahbuddy-webapp/index.html" class="project-card fade-up">
+            <h3 class="serif" data-i18n="proj2_name">YeahBuddy — Fitness Web App</h3>
+            <div class="pc-desc" data-i18n="proj2_desc">A web app that helps users reach their fitness goals.</div>
+            <div class="pc-stack">Kotlin · Spring · MariaDB</div>
+          </a>
+
+          <a href="./Backend_Projects/NodeJS/NodeJsProject1.html" class="project-card fade-up">
+            <h3 class="serif" data-i18n="proj3_name">Node.js Webshop</h3>
+            <div class="pc-desc" data-i18n="proj3_desc">A webshop built with Node.js, Express, MongoDB and a REST API.
+            </div>
+            <div class="pc-stack">Express · MongoDB · REST · JWT</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-panel fade-up">
+        <div class="contact-glow" aria-hidden="true"></div>
+        <div class="contact-inner">
+          <div class="contact-kicker" data-i18n="contact_kicker">Get in touch</div>
+          <h2 class="contact-title serif" data-i18n="contact_title">Let's build something together.</h2>
+          <p class="contact-body" data-i18n="contact_body">Whether you're hiring, collaborating, or just curious about my
+            work, I'd love to hear from you.</p>
+          <div class="contact-actions">
+            <a href="mailto:nikola.vasic.0209@gmail.com" class="btn-cream">nikola.vasic.0209@gmail.com</a>
+            <a href="https://www.linkedin.com/in/nikola-vasic-2881152a1/" class="btn-ghost" target="_blank"
+              rel="noreferrer noopener">LinkedIn</a>
+            <a href="https://github.com/Vaske4" class="btn-ghost" target="_blank" rel="noreferrer noopener">GitHub</a>
+          </div>
+          <div class="contact-loc"><span aria-hidden="true">📍</span> <span data-i18n="contact_location">Graz,
+              Austria</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container site-footer">
+      <div class="footer-mark serif">Nikola <span>Vasic</span></div>
+      <div>© 2026 Nikola Vasic · <span data-i18n="footer_built">Designed &amp; built by hand</span></div>
     </div>
   </footer>
 
   <script>
-    // Intersection Observer für "fade-up" Animationen
-    const observer = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('appear');
-          observer.unobserve(e.target);
-        }
+    // --- i18n: English (default) + German. The chosen language is saved in
+    //     localStorage under "siteLang" so project subpages can pick up the
+    //     same preference. Default is English on the first visit. ---
+    const translations = {
+      en: {
+        page_title: "Nikola Vasic - Portfolio",
+        menu_label: "☰ Menu",
+        menu_aria: "Open/close menu",
+        nav_home: "Home",
+        nav_about: "About",
+        nav_education: "Education",
+        nav_projects: "Projects",
+        nav_contact: "Contact",
+        say_hello: "Say hello",
+        hero_eyebrow: "Welcome — nice to meet you",
+        hero_title: "A developer with a <em>leadership</em> mindset.",
+        hero_lede: "I'm Nikola — business informatics student at FH JOANNEUM, Graz. I turn requirements into user stories, user stories into software, and teams into shipping teams.",
+        hero_btn_projects: "My projects",
+        hero_btn_contact: "Contact",
+        hero_btn_contact_aria: "Get in touch",
+        hero_img_alt: "Portrait of Nikola Vasic",
+        stat_langs: "Languages & frameworks",
+        stat_projects: "Shipped projects",
+        stat_lead: "Team lead role",
+        open_badge: "Open for new Challenges",
+        about_kicker: "About me",
+        about_title: "Business informatics, with a product owner’s way of thinking.",
+        pl_kicker: "Product & leadership",
+        pl_title: "Team lead on a Kubernetes project — backlog, epics and stakeholder demos.",
+        pl_body: "I own the “why” as much as the “how”: prioritising work, writing user stories and keeping the team aligned. Aiming for a Product Owner role alongside my Master’s.",
+        about_p1: "As a business informatics student at FH JOANNEUM I connect a passion for technology with a solid understanding of how businesses actually run.",
+        about_p2: "My goal is to build digital solutions that help teams make data-driven decisions and ship faster — with web development as my home turf.",
+        stack_kicker: "Builds with",
+        edu_kicker: "Education",
+        edu_title: "Studies & background",
+        edu1_years: "2023 — 2026",
+        edu1_degree: "BSc Business Informatics",
+        edu1_school: "FH JOANNEUM, Graz",
+        edu1_detail: "Focus: software development, business intelligence, projectmanagement.",
+        edu2_years: "2019 — 2022",
+        edu2_degree: "Matura, Digital Business",
+        edu2_school: "Business school, Graz",
+        edu2_detail: "Focus: software development, business administration and accounting.",
+        proj_kicker: "Selected projects",
+        proj_note: "Leadership first, stack second",
+        proj_title: "Things I’ve built and led",
+        badge_team_lead: "Team Lead",
+        badge_featured: "Featured",
+        k8s_body: "Led a student team as Product-Owner-in-practice: Kanban board, epics and user stories in Jira, GitOps deployment with ArgoCD and Rancher Fleet on Kubernetes.",
+        read_case: "Read the case study",
+        proj1_name: "f:freedom — Budget Tracking App",
+        proj1_desc: "Helps users track income and expenses to stay on top of their finances at all times.",
+        proj2_name: "YeahBuddy — Fitness Web App",
+        proj2_desc: "A web app that helps users reach their fitness goals.",
+        proj3_name: "Node.js Webshop",
+        proj3_desc: "A webshop built with Node.js, Express, MongoDB and a REST API.",
+        contact_kicker: "Get in touch",
+        contact_title: "Let’s build something together.",
+        contact_body: "Whether you’re hiring, collaborating, or just curious about my work, I’d love to hear from you.",
+        contact_location: "Graz, Austria",
+        footer_built: "Designed & built by hand"
+      },
+      de: {
+        page_title: "Nikola Vasic - Lebenslauf",
+        menu_label: "☰ Menü",
+        menu_aria: "Menü öffnen/schließen",
+        nav_home: "Home",
+        nav_about: "Über mich",
+        nav_education: "Ausbildung",
+        nav_projects: "Projekte",
+        nav_contact: "Kontakt",
+        say_hello: "Say hello",
+        hero_eyebrow: "Willkommen",
+        hero_title: "Ein Entwickler mit <em>Leadership-</em>Mindset.",
+        hero_lede: "Ich bin Nikola — Wirtschaftsinformatik-Student an der FH JOANNEUM, Graz. Ich mache aus Anforderungen User Stories, aus User Stories Software und aus Teams liefernde Teams.",
+        hero_btn_projects: "Meine Projekte",
+        hero_btn_contact: "Kontakt",
+        hero_btn_contact_aria: "Kontakt aufnehmen",
+        hero_img_alt: "Porträt von Nikola Vasic",
+        stat_langs: "Sprachen & Frameworks",
+        stat_projects: "Umgesetzte Projekte",
+        stat_lead: "Team-Lead-Rolle",
+        open_badge: "Offen für neue Herausforderungen",
+        about_kicker: "Über mich",
+        about_title: "Wirtschaftsinformatik — mit dem Denken eines Product Owners.",
+        pl_kicker: "Produkt & Leadership",
+        pl_title: "Team Lead in einem Kubernetes-Projekt — Backlog, Epics und Stakeholder-Demos.",
+        pl_body: "Ich verantworte das „Warum“ genauso wie das „Wie“: Priorisieren, User Stories schreiben und das Team ausrichten. Ziel ist eine Product-Owner-Rolle neben dem Master.",
+        about_p1: "Als Wirtschaftsinformatik-Student an der FH JOANNEUM verbinde ich meine Leidenschaft für Technologie mit einem fundierten Verständnis betrieblicher Abläufe.",
+        about_p2: "Mein Ziel: digitale Lösungen bauen, die Teams datenbasierte Entscheidungen und schnelleres Liefern ermöglichen — mit Webentwicklung als Heimspiel.",
+        stack_kicker: "Arbeitet mit",
+        edu_kicker: "Ausbildung",
+        edu_title: "Studium & Werdegang",
+        edu1_years: "2023 — 2026",
+        edu1_degree: "Bachelor Wirtschaftsinformatik",
+        edu1_school: "FH JOANNEUM, Graz",
+        edu1_detail: "Schwerpunkte: Softwareentwicklung, Business Intelligence, Projektmanagement.",
+        edu2_years: "2019 — 2022",
+        edu2_degree: "Matura, Digital Business",
+        edu2_school: "Handelsakademie, Graz",
+        edu2_detail: "Schwerpunkt: Softwareentwicklung, Betriebswirtschaftslehre und Rechnungswesen.",
+        proj_kicker: "Ausgewählte Projekte",
+        proj_note: "Leadership zuerst, Stack danach",
+        proj_title: "Was ich gebaut und geleitet habe",
+        badge_team_lead: "Team Lead",
+        badge_featured: "Highlight",
+        k8s_body: "Als Product-Owner-in-practice ein Studierendenteam geführt: Kanban-Board, Epics und User Stories in Jira, GitOps-Deployment mit ArgoCD und Rancher Fleet auf Kubernetes.",
+        read_case: "Case Study lesen",
+        proj1_name: "f:freedom — Budget Tracking App",
+        proj1_desc: "Hilft Nutzer:innen, Einnahmen und Ausgaben zu tracken, um jederzeit den Überblick zu behalten.",
+        proj2_name: "YeahBuddy — Fitness Web App",
+        proj2_desc: "Eine Web-App, die Nutzer:innen hilft, ihre Fitnessziele zu erreichen.",
+        proj3_name: "Node.js Webshop",
+        proj3_desc: "Ein Webshop mit Node.js, Express, MongoDB und REST API.",
+        contact_kicker: "Kontakt",
+        contact_title: "Lass uns gemeinsam etwas bauen.",
+        contact_body: "Ob du einstellst, zusammenarbeiten willst oder einfach neugierig bist — ich freue mich, von dir zu hören.",
+        contact_location: "Graz, Österreich",
+        footer_built: "Von Hand gestaltet & gebaut"
       }
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    };
 
-    // Active Link beim Scrollen
+    const LANG_KEY = 'siteLang';
+
+    function applyLang(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n')];
+        if (v != null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-html')];
+        if (v != null) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-aria')];
+        if (v != null) el.setAttribute('aria-label', v);
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-alt')];
+        if (v != null) el.setAttribute('alt', v);
+      });
+      if (dict.page_title) document.title = dict.page_title;
+
+      document.querySelectorAll('.lang-switch button').forEach(b => {
+        const on = b.dataset.lang === lang;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    }
+
+    // Default English on first visit; remember the manual choice afterwards.
+    let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+    applyLang(currentLang);
+
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.dataset.lang;
+        localStorage.setItem(LANG_KEY, currentLang);
+        applyLang(currentLang);
+      });
+    });
+
+    // Fade-up animations, staggered in groups of three.
+    const revealTargets = [...document.querySelectorAll('.fade-up')];
+    const reveal = el => el.classList.add('in');
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            reveal(e.target);
+            observer.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+      revealTargets.forEach((el, i) => {
+        el.style.transitionDelay = ((i % 3) * 0.07) + 's';
+        observer.observe(el);
+      });
+
+      // Anything already on screen at load reveals immediately; the timeout is a
+      // safety net so content can never stay invisible if the observer misfires.
+      requestAnimationFrame(() => {
+        revealTargets.forEach(el => {
+          if (el.getBoundingClientRect().top < window.innerHeight * 1.05) reveal(el);
+        });
+      });
+      setTimeout(() => revealTargets.forEach(reveal), 1800);
+    } else {
+      revealTargets.forEach(reveal);
+    }
+
+    // Nav: lift the pill's shadow once the page scrolls.
+    const siteNav = document.querySelector('.site-nav');
     const sections = [...document.querySelectorAll('section')];
     const navLinks = [...document.querySelectorAll('.nav-links a')];
-    const setActive = () => {
-      const y = window.scrollY + 76; // header offset
+
+    const onScroll = () => {
+      siteNav.classList.toggle('scrolled', window.scrollY > 20);
+
+      const y = window.scrollY + 100; // sticky nav offset
       let id = 'home';
       for (const s of sections) {
         if (y >= s.offsetTop) id = s.id;
       }
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     };
-    document.addEventListener('scroll', setActive, { passive: true });
-    setActive();
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-    // Mobile: Burger-Menü Toggle
+    // Mobile: burger menu toggle
     const body = document.body;
-    const btn = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav-links');
-    btn?.addEventListener('click', () => {
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-links');
+    menuBtn?.addEventListener('click', () => {
       const open = body.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-expanded', String(open));
     });
-    // Menü nach Klick schließen (Mobile)
-    nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navList?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       if (body.classList.contains('nav-open')) {
         body.classList.remove('nav-open');
-        btn?.setAttribute('aria-expanded', 'false');
+        menuBtn?.setAttribute('aria-expanded', 'false');
       }
     }));
   </script>

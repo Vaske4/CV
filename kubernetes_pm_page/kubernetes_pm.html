@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nikola Vasic | Kubernetes &amp; Project Management | Project</title>
+  <meta name="description"
+    content="University project: deploying a web application on Kubernetes with a GitLab CI/CD pipeline and GitOps delivery via ArgoCD and Rancher Fleet — led as Team Lead with Jira, Kanban, epics and user stories." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./kubernetes_pm.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <div class="logo">Nikola <span>Vasic</span></div>
+        <div class="nav-cluster">
+          <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#overview" data-i18n="nav_overview">Overview</a></li>
+            <li><a href="#pipeline" data-i18n="nav_pipeline">Pipeline</a></li>
+            <li><a href="#leadership" data-i18n="nav_leadership">Leadership</a></li>
+            <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+            <li><a href="#challenges" data-i18n="nav_challenges">Challenges</a></li>
+            <li><a href="../index.html" class="back-link" data-i18n="nav_back" data-i18n-aria="nav_back_aria"
+                aria-label="Back to portfolio">← Back</a></li>
+          </ul>
+          <div class="lang-switch" role="group" aria-label="Language / Sprache">
+            <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+            <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          </div>
+          <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" data-i18n="menu_label"
+            data-i18n-aria="menu_aria" aria-label="Open/close menu">☰ Menu</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="section">
+    <div class="container hero">
+      <div class="fade-up">
+        <div class="eyebrow"><span class="dot"></span> <span data-i18n="hero_eyebrow">University Project · Team
+            Lead</span></div>
+        <h1 data-i18n-html="hero_title">Kubernetes &amp; <span>Project Management</span></h1>
+        <p class="muted" data-i18n="hero_p">Deploying a web application on Kubernetes with a full GitLab CI/CD pipeline
+          and GitOps delivery via ArgoCD and Rancher Fleet — while leading a four-person team as Team Lead.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#overview" data-i18n="hero_btn_overview">Project Overview</a>
+          <a class="btn btn-outline" href="#leadership" data-i18n="hero_btn_role">My Role</a>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="tool-stack" aria-label="Tools used">
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg"
+              alt="Kubernetes" loading="lazy">
+            <span>Kubernetes</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab"
+              loading="lazy">
+            <span>GitLab CI</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"
+              loading="lazy">
+            <span>Docker</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-original.svg" alt="ArgoCD"
+              loading="lazy">
+            <span>ArgoCD</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rancher/rancher-original.svg" alt="Rancher"
+              loading="lazy">
+            <span>Rancher Fleet</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira"
+              loading="lazy">
+            <span>Jira</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="overview_title">Project Overview</h2>
+      <p class="section-lead" data-i18n="overview_lead">A semester project at FH JOANNEUM: take a web application and
+        bring it to production on Kubernetes with an automated, GitOps-driven delivery pipeline.</p>
+      <div class="grid-2">
+        <div class="card">
+          <h3 data-i18n="overview_card_title">The Assignment</h3>
+          <p class="muted" data-i18n="overview_p1">In a team of four students supervised by one lecturer, we had to
+            deploy a web application (similar to YeahBuddy) on a Kubernetes cluster and build a complete CI/CD pipeline
+            around it.</p>
+          <p class="muted" data-i18n="overview_p2">The codebase lived in a GitLab repository. GitLab CI handled build and
+            test, the resulting Docker image was pushed to the GitLab Container Registry, and ArgoCD and Rancher Fleet
+            pulled that image to deploy and deliver the application to the cluster.</p>
+          <p class="muted" data-i18n="overview_p3">Part of the assignment was a direct comparison of ArgoCD and Rancher
+            Fleet to determine which tool was the better fit.</p>
+        </div>
+        <div class="card">
+          <h3 data-i18n="overview_facts_title">At a Glance</h3>
+          <ul class="facts">
+            <li><strong data-i18n="fact_context_k">Context</strong> <span data-i18n="fact_context_v">University project,
+                FH JOANNEUM</span></li>
+            <li><strong data-i18n="fact_team_k">Team</strong> <span data-i18n="fact_team_v">4 students, 1
+                supervisor</span></li>
+            <li><strong data-i18n="fact_role_k">My role</strong> <span data-i18n="fact_role_v">Team Lead &amp; Project
+                Management</span></li>
+            <li><strong data-i18n="fact_tools_k">Tools</strong> <span data-i18n="fact_tools_v">GitLab, GitLab CI, Docker,
+                Kubernetes, ArgoCD, Rancher Fleet, Jira</span></li>
+            <li><strong data-i18n="fact_focus_k">Focus</strong> <span data-i18n="fact_focus_v">CI/CD, GitOps delivery,
+                agile team leadership</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section id="pipeline" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="pipeline_title">CI/CD Pipeline &amp; GitOps Delivery</h2>
+      <p class="section-lead" data-i18n="pipeline_lead">Every commit ran through an automated pipeline before the
+        application ever reached the cluster.</p>
+
+      <div class="pipeline">
+        <div class="pipeline-step">
+          <span class="step-num">1</span>
+          <h4 data-i18n="step1_t">Commit</h4>
+          <p data-i18n="step1_d">Code pushed to the GitLab repository.</p>
+        </div>
+        <span class="pipeline-arrow" aria-hidden="true">→</span>
+        <div class="pipeline-step">
+          <span class="step-num">2</span>
+          <h4 data-i18n="step2_t">Test</h4>
+          <p data-i18n="step2_d">Automated unit tests run in GitLab CI.</p>
+        </div>
+        <span class="pipeline-arrow" aria-hidden="true">→</span>
+        <div class="pipeline-step">
+          <span class="step-num">3</span>
+          <h4 data-i18n="step3_t">Containerize</h4>
+          <p data-i18n="step3_d">Docker build packages the application.</p>
+        </div>
+        <span class="pipeline-arrow" aria-hidden="true">→</span>
+        <div class="pipeline-step">
+          <span class="step-num">4</span>
+          <h4 data-i18n="step4_t">Push Image</h4>
+          <p data-i18n="step4_d">Image published to the GitLab Container Registry.</p>
+        </div>
+        <span class="pipeline-arrow" aria-hidden="true">→</span>
+        <div class="pipeline-step">
+          <span class="step-num">5</span>
+          <h4 data-i18n="step5_t">Deploy</h4>
+          <p data-i18n="step5_d">ArgoCD &amp; Rancher Fleet pull the image into Kubernetes.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="box">
+          <h3 data-i18n="gitops_t">GitOps Delivery</h3>
+          <p data-i18n="gitops_d">Instead of pushing changes into the cluster, ArgoCD and Rancher Fleet continuously
+            watch the Git repository and pull the desired state. Git stays the single source of truth for the
+            deployment.</p>
+        </div>
+        <div class="box">
+          <h3 data-i18n="compare_t">ArgoCD vs. Rancher Fleet</h3>
+          <p data-i18n="compare_d">We configured and evaluated both tools side by side — setup effort, quality of the UI
+            and its sync feedback, multi-cluster handling, and how transparent rollbacks were — and derived a
+            recommendation from the comparison.</p>
+        </div>
+      </div>
+
+      <!-- REPLACE ME: drop your diagram into ./images/ and swap this block for
+           <img src="./images/architecture.png" alt="Architecture and pipeline diagram" /> -->
+      <div class="media-placeholder" style="margin-top:1.5rem">
+        <span class="ph-icon" aria-hidden="true">🗺️</span>
+        <span class="ph-title" data-i18n="ph_arch_t">Architecture / Pipeline Diagram</span>
+        <span class="ph-hint" data-i18n="ph_arch_h">Add your diagram to ./images/ and replace this placeholder.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP & PROJECT MANAGEMENT (highlighted) -->
+  <section id="leadership" class="section">
+    <div class="container fade-up">
+      <div class="highlight">
+        <span class="role-badge" data-i18n="role_badge">Team Lead · Product Owner mindset</span>
+        <h2 class="section-title" data-i18n="lead_title">Leadership &amp; Project Management</h2>
+        <div class="grid-2">
+          <div>
+            <p class="muted" data-i18n="lead_p1">As Team Lead I owned the project management side of the work. Beyond
+              the technical implementation, I was responsible for structuring the work, keeping the team aligned, and
+              maintaining a clear view of progress at all times.</p>
+            <p class="muted" data-i18n="lead_p2">I set up and ran the project in Jira: I broke the assignment down into
+              epics, wrote the user stories, maintained a Kanban board to visualize the flow of work, and built a
+              timeline with the milestones we had to hit.</p>
+            <h3 data-i18n="lead_list_title">What I owned</h3>
+            <ul class="check-list">
+              <li data-i18n="lead_li1">Set up and administered the Jira project workspace</li>
+              <li data-i18n="lead_li2">Broke the assignment down into epics and wrote the user stories</li>
+              <li data-i18n="lead_li3">Built and maintained a Kanban board to visualize work in progress</li>
+              <li data-i18n="lead_li4">Created the project timeline and tracked the milestones</li>
+              <li data-i18n="lead_li5">Delegated tasks across the team and unblocked teammates</li>
+              <li data-i18n="lead_li6">Kept a continuous overview of scope, progress and priorities</li>
+              <li data-i18n="lead_li7">Reported progress to and coordinated with our supervisor</li>
+            </ul>
+          </div>
+          <div>
+            <!-- REPLACE ME: drop your Jira screenshot into ./images/ and swap this block for
+                 <img src="./images/kanban_board.png" alt="Jira Kanban board" /> -->
+            <div class="media-placeholder" style="min-height:100%">
+              <span class="ph-icon" aria-hidden="true">📋</span>
+              <span class="ph-title" data-i18n="ph_kanban_t">Jira Kanban Board</span>
+              <span class="ph-hint" data-i18n="ph_kanban_h">Add your board screenshot to ./images/ and replace this
+                placeholder.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="skills_title">Skills I Acquired</h2>
+      <p class="section-lead" data-i18n="skills_lead">What this project actually taught me — on both the technical and
+        the people side.</p>
+      <div class="grid-3">
+
+        <div class="skill-block">
+          <h3>
+            <span class="skill-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 2h6a1 1 0 0 1 1 1v2H8V3a1 1 0 0 1 1-1z"></path>
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                <path d="M9 12h6"></path>
+                <path d="M9 16h4"></path>
+              </svg>
+            </span>
+            <span data-i18n="skill1_t">Project Management &amp; Product Ownership</span>
+          </h3>
+          <ul class="check-list">
+            <li data-i18n="skill1_1">Writing user stories with clear acceptance criteria</li>
+            <li data-i18n="skill1_2">Structuring a backlog into epics and actionable tasks</li>
+            <li data-i18n="skill1_3">Running a Kanban board and managing work in progress</li>
+            <li data-i18n="skill1_4">Roadmap and timeline planning with milestone tracking</li>
+            <li data-i18n="skill1_5">Prioritization and scope management under a fixed deadline</li>
+            <li data-i18n="skill1_6">Working with Jira as the central planning tool</li>
+            <li data-i18n="skill1_7">Agile ways of working in a small, cross-functional team</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>
+            <span class="skill-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </span>
+            <span data-i18n="skill2_t">Leadership &amp; Teamwork</span>
+          </h3>
+          <ul class="check-list">
+            <li data-i18n="skill2_1">Leading a four-person team from kickoff to delivery</li>
+            <li data-i18n="skill2_2">Delegating work based on individual strengths</li>
+            <li data-i18n="skill2_3">Keeping the whole team aligned on the goal and the status</li>
+            <li data-i18n="skill2_4">Facilitating decisions when the team disagreed</li>
+            <li data-i18n="skill2_5">Communicating progress to a stakeholder (our supervisor)</li>
+            <li data-i18n="skill2_6">Creating an environment where the team enjoyed the work</li>
+          </ul>
+        </div>
+
+        <div class="skill-block">
+          <h3>
+            <span class="skill-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </span>
+            <span data-i18n="skill3_t">DevOps &amp; GitOps</span>
+          </h3>
+          <ul class="check-list">
+            <li data-i18n="skill3_1">Designing and building a CI/CD pipeline in GitLab CI</li>
+            <li data-i18n="skill3_2">Automating unit tests as a quality gate in the pipeline</li>
+            <li data-i18n="skill3_3">Containerizing an application with Docker</li>
+            <li data-i18n="skill3_4">Publishing and versioning images in a container registry</li>
+            <li data-i18n="skill3_5">Deploying and operating workloads on Kubernetes</li>
+            <li data-i18n="skill3_6">Continuous delivery with ArgoCD and Rancher Fleet (GitOps)</li>
+            <li data-i18n="skill3_7">Evaluating and comparing tooling to make a recommendation</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section id="challenges" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="ch_title">Challenges I Overcame</h2>
+      <div class="grid-3">
+        <div class="box">
+          <h3 data-i18n="ch1_t">Learning a new technology</h3>
+          <p data-i18n="ch1_d">Kubernetes, GitOps and the surrounding tooling were all new to me. I had to learn them
+            quickly and, more importantly, apply them correctly rather than just get them running.</p>
+        </div>
+        <div class="box">
+          <h3 data-i18n="ch2_t">Managing a team with Jira &amp; Kanban</h3>
+          <p data-i18n="ch2_d">Turning a loose assignment into structured epics, user stories and a Kanban board that the
+            team actually used day to day.</p>
+        </div>
+        <div class="box">
+          <h3 data-i18n="ch3_t">Keeping the overview as Team Lead</h3>
+          <p data-i18n="ch3_d">Holding a clear picture of the whole project and its progress at all times, while still
+            contributing to the technical work myself.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conclusion" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="concl_title">Conclusion</h2>
+      <blockquote class="quote" data-i18n="concl_quote">Despite these challenges, I genuinely enjoyed leading this great
+        group — and the project itself was fascinating from start to finish.</blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="muted" data-i18n="footer_text">© 2025 Kubernetes &amp; Project Management — Project page</p>
+    </div>
+  </footer>
+
+  <script>
+    // --- i18n: English (default) + German. Shares the "siteLang" localStorage key
+    //     with index.html, so the language chosen on the portfolio carries over. ---
+    const translations = {
+      en: {
+        page_title: "Nikola Vasic | Kubernetes & Project Management | Project",
+        menu_label: "☰ Menu",
+        menu_aria: "Open/close menu",
+        nav_home: "Home",
+        nav_overview: "Overview",
+        nav_pipeline: "Pipeline",
+        nav_leadership: "Leadership",
+        nav_skills: "Skills",
+        nav_challenges: "Challenges",
+        nav_back: "← Back",
+        nav_back_aria: "Back to portfolio",
+
+        hero_eyebrow: "University Project · Team Lead",
+        hero_title: 'Kubernetes &amp; <span>Project Management</span>',
+        hero_p: "Deploying a web application on Kubernetes with a full GitLab CI/CD pipeline and GitOps delivery via ArgoCD and Rancher Fleet — while leading a four-person team as Team Lead.",
+        hero_btn_overview: "Project Overview",
+        hero_btn_role: "My Role",
+
+        overview_title: "Project Overview",
+        overview_lead: "A semester project at FH JOANNEUM: take a web application and bring it to production on Kubernetes with an automated, GitOps-driven delivery pipeline.",
+        overview_card_title: "The Assignment",
+        overview_p1: "In a team of four students supervised by one lecturer, we had to deploy a web application (similar to YeahBuddy) on a Kubernetes cluster and build a complete CI/CD pipeline around it.",
+        overview_p2: "The codebase lived in a GitLab repository. GitLab CI handled build and test, the resulting Docker image was pushed to the GitLab Container Registry, and ArgoCD and Rancher Fleet pulled that image to deploy and deliver the application to the cluster.",
+        overview_p3: "Part of the assignment was a direct comparison of ArgoCD and Rancher Fleet to determine which tool was the better fit.",
+        overview_facts_title: "At a Glance",
+        fact_context_k: "Context",
+        fact_context_v: "University project, FH JOANNEUM",
+        fact_team_k: "Team",
+        fact_team_v: "4 students, 1 supervisor",
+        fact_role_k: "My role",
+        fact_role_v: "Team Lead & Project Management",
+        fact_tools_k: "Tools",
+        fact_tools_v: "GitLab, GitLab CI, Docker, Kubernetes, ArgoCD, Rancher Fleet, Jira",
+        fact_focus_k: "Focus",
+        fact_focus_v: "CI/CD, GitOps delivery, agile team leadership",
+
+        pipeline_title: "CI/CD Pipeline & GitOps Delivery",
+        pipeline_lead: "Every commit ran through an automated pipeline before the application ever reached the cluster.",
+        step1_t: "Commit",
+        step1_d: "Code pushed to the GitLab repository.",
+        step2_t: "Test",
+        step2_d: "Automated unit tests run in GitLab CI.",
+        step3_t: "Containerize",
+        step3_d: "Docker build packages the application.",
+        step4_t: "Push Image",
+        step4_d: "Image published to the GitLab Container Registry.",
+        step5_t: "Deploy",
+        step5_d: "ArgoCD & Rancher Fleet pull the image into Kubernetes.",
+        gitops_t: "GitOps Delivery",
+        gitops_d: "Instead of pushing changes into the cluster, ArgoCD and Rancher Fleet continuously watch the Git repository and pull the desired state. Git stays the single source of truth for the deployment.",
+        compare_t: "ArgoCD vs. Rancher Fleet",
+        compare_d: "We configured and evaluated both tools side by side — setup effort, quality of the UI and its sync feedback, multi-cluster handling, and how transparent rollbacks were — and derived a recommendation from the comparison.",
+        ph_arch_t: "Architecture / Pipeline Diagram",
+        ph_arch_h: "Add your diagram to ./images/ and replace this placeholder.",
+
+        role_badge: "Team Lead · Product Owner mindset",
+        lead_title: "Leadership & Project Management",
+        lead_p1: "As Team Lead I owned the project management side of the work. Beyond the technical implementation, I was responsible for structuring the work, keeping the team aligned, and maintaining a clear view of progress at all times.",
+        lead_p2: "I set up and ran the project in Jira: I broke the assignment down into epics, wrote the user stories, maintained a Kanban board to visualize the flow of work, and built a timeline with the milestones we had to hit.",
+        lead_list_title: "What I owned",
+        lead_li1: "Set up and administered the Jira project workspace",
+        lead_li2: "Broke the assignment down into epics and wrote the user stories",
+        lead_li3: "Built and maintained a Kanban board to visualize work in progress",
+        lead_li4: "Created the project timeline and tracked the milestones",
+        lead_li5: "Delegated tasks across the team and unblocked teammates",
+        lead_li6: "Kept a continuous overview of scope, progress and priorities",
+        lead_li7: "Reported progress to and coordinated with our supervisor",
+        ph_kanban_t: "Jira Kanban Board",
+        ph_kanban_h: "Add your board screenshot to ./images/ and replace this placeholder.",
+
+        skills_title: "Skills I Acquired",
+        skills_lead: "What this project actually taught me — on both the technical and the people side.",
+        skill1_t: "Project Management & Product Ownership",
+        skill1_1: "Writing user stories with clear acceptance criteria",
+        skill1_2: "Structuring a backlog into epics and actionable tasks",
+        skill1_3: "Running a Kanban board and managing work in progress",
+        skill1_4: "Roadmap and timeline planning with milestone tracking",
+        skill1_5: "Prioritization and scope management under a fixed deadline",
+        skill1_6: "Working with Jira as the central planning tool",
+        skill1_7: "Agile ways of working in a small, cross-functional team",
+        skill2_t: "Leadership & Teamwork",
+        skill2_1: "Leading a four-person team from kickoff to delivery",
+        skill2_2: "Delegating work based on individual strengths",
+        skill2_3: "Keeping the whole team aligned on the goal and the status",
+        skill2_4: "Facilitating decisions when the team disagreed",
+        skill2_5: "Communicating progress to a stakeholder (our supervisor)",
+        skill2_6: "Creating an environment where the team enjoyed the work",
+        skill3_t: "DevOps & GitOps",
+        skill3_1: "Designing and building a CI/CD pipeline in GitLab CI",
+        skill3_2: "Automating unit tests as a quality gate in the pipeline",
+        skill3_3: "Containerizing an application with Docker",
+        skill3_4: "Publishing and versioning images in a container registry",
+        skill3_5: "Deploying and operating workloads on Kubernetes",
+        skill3_6: "Continuous delivery with ArgoCD and Rancher Fleet (GitOps)",
+        skill3_7: "Evaluating and comparing tooling to make a recommendation",
+
+        ch_title: "Challenges I Overcame",
+        ch1_t: "Learning a new technology",
+        ch1_d: "Kubernetes, GitOps and the surrounding tooling were all new to me. I had to learn them quickly and, more importantly, apply them correctly rather than just get them running.",
+        ch2_t: "Managing a team with Jira & Kanban",
+        ch2_d: "Turning a loose assignment into structured epics, user stories and a Kanban board that the team actually used day to day.",
+        ch3_t: "Keeping the overview as Team Lead",
+        ch3_d: "Holding a clear picture of the whole project and its progress at all times, while still contributing to the technical work myself.",
+
+        concl_title: "Conclusion",
+        concl_quote: "Despite these challenges, I genuinely enjoyed leading this great group — and the project itself was fascinating from start to finish.",
+        footer_text: "© 2025 Kubernetes & Project Management — Project page"
+      },
+      de: {
+        page_title: "Nikola Vasic | Kubernetes & Projektmanagement | Projekt",
+        menu_label: "☰ Menü",
+        menu_aria: "Menü öffnen/schließen",
+        nav_home: "Home",
+        nav_overview: "Überblick",
+        nav_pipeline: "Pipeline",
+        nav_leadership: "Führung",
+        nav_skills: "Skills",
+        nav_challenges: "Challenges",
+        nav_back: "← Zurück",
+        nav_back_aria: "Zurück zum Portfolio",
+
+        hero_eyebrow: "FH-Projekt · Teamleitung",
+        hero_title: 'Kubernetes &amp; <span>Projektmanagement</span>',
+        hero_p: "Deployment einer Webapplikation auf Kubernetes mit einer vollständigen GitLab CI/CD-Pipeline und GitOps-Delivery über ArgoCD und Rancher Fleet — als Teamleiter eines vierköpfigen Teams.",
+        hero_btn_overview: "Projektüberblick",
+        hero_btn_role: "Meine Rolle",
+
+        overview_title: "Projektüberblick",
+        overview_lead: "Ein Semesterprojekt an der FH JOANNEUM: eine Webapplikation mit einer automatisierten, GitOps-getriebenen Delivery-Pipeline auf Kubernetes in Betrieb nehmen.",
+        overview_card_title: "Die Aufgabenstellung",
+        overview_p1: "In einem Team aus vier Studierenden und einem Betreuer mussten wir eine Webapplikation (ähnlich wie YeahBuddy) auf einem Kubernetes-Cluster deployen und eine vollständige CI/CD-Pipeline dafür aufbauen.",
+        overview_p2: "Die Codebasis lag in einem GitLab-Repository. GitLab CI übernahm Build und Test, das entstandene Docker-Image wurde in die GitLab Container Registry gepusht, und ArgoCD sowie Rancher Fleet zogen dieses Image, um die Applikation im Cluster zu deployen und auszuliefern.",
+        overview_p3: "Teil der Aufgabe war ein direkter Vergleich von ArgoCD und Rancher Fleet, um zu bewerten, welches Tool besser geeignet ist.",
+        overview_facts_title: "Auf einen Blick",
+        fact_context_k: "Rahmen",
+        fact_context_v: "FH-Projekt, FH JOANNEUM",
+        fact_team_k: "Team",
+        fact_team_v: "4 Studierende, 1 Betreuer",
+        fact_role_k: "Meine Rolle",
+        fact_role_v: "Teamleiter & Projektmanagement",
+        fact_tools_k: "Tools",
+        fact_tools_v: "GitLab, GitLab CI, Docker, Kubernetes, ArgoCD, Rancher Fleet, Jira",
+        fact_focus_k: "Schwerpunkt",
+        fact_focus_v: "CI/CD, GitOps-Delivery, agile Teamführung",
+
+        pipeline_title: "CI/CD-Pipeline & GitOps-Delivery",
+        pipeline_lead: "Jeder Commit durchlief eine automatisierte Pipeline, bevor die Applikation den Cluster erreichte.",
+        step1_t: "Commit",
+        step1_d: "Code-Push in das GitLab-Repository.",
+        step2_t: "Test",
+        step2_d: "Automatisierte Unit-Tests in GitLab CI.",
+        step3_t: "Containerisieren",
+        step3_d: "Docker Build verpackt die Applikation.",
+        step4_t: "Image pushen",
+        step4_d: "Image wird in die GitLab Container Registry veröffentlicht.",
+        step5_t: "Deploy",
+        step5_d: "ArgoCD & Rancher Fleet ziehen das Image nach Kubernetes.",
+        gitops_t: "GitOps-Delivery",
+        gitops_d: "Statt Änderungen in den Cluster zu pushen, beobachten ArgoCD und Rancher Fleet kontinuierlich das Git-Repository und ziehen den gewünschten Zustand. Git bleibt die einzige Quelle der Wahrheit für das Deployment.",
+        compare_t: "ArgoCD vs. Rancher Fleet",
+        compare_d: "Wir konfigurierten und bewerteten beide Tools nebeneinander — Einrichtungsaufwand, Qualität des UI und dessen Sync-Feedback, Multi-Cluster-Handling und Transparenz von Rollbacks — und leiteten daraus eine Empfehlung ab.",
+        ph_arch_t: "Architektur- / Pipeline-Diagramm",
+        ph_arch_h: "Diagramm in ./images/ ablegen und diesen Platzhalter ersetzen.",
+
+        role_badge: "Teamleiter · Product-Owner-Mindset",
+        lead_title: "Führung & Projektmanagement",
+        lead_p1: "Als Teamleiter verantwortete ich den Projektmanagement-Teil. Neben der technischen Umsetzung war ich dafür zuständig, die Arbeit zu strukturieren, das Team auszurichten und jederzeit einen klaren Blick auf den Fortschritt zu behalten.",
+        lead_p2: "Ich setzte das Projekt in Jira auf und steuerte es: Ich brach die Aufgabenstellung in Epics herunter, schrieb die User Stories, pflegte ein Kanban-Board zur Visualisierung des Arbeitsflusses und erstellte eine Timeline mit den zu erreichenden Meilensteinen.",
+        lead_list_title: "Meine Verantwortlichkeiten",
+        lead_li1: "Aufsetzen und Administration des Jira-Projekt-Workspace",
+        lead_li2: "Aufteilung der Aufgabenstellung in Epics und Schreiben der User Stories",
+        lead_li3: "Aufbau und Pflege eines Kanban-Boards zur Visualisierung der laufenden Arbeit",
+        lead_li4: "Erstellung der Projekt-Timeline und Tracking der Meilensteine",
+        lead_li5: "Aufgabenverteilung im Team und Beseitigung von Blockaden",
+        lead_li6: "Kontinuierlicher Überblick über Scope, Fortschritt und Prioritäten",
+        lead_li7: "Fortschrittsberichte an und Abstimmung mit unserem Betreuer",
+        ph_kanban_t: "Jira Kanban-Board",
+        ph_kanban_h: "Board-Screenshot in ./images/ ablegen und diesen Platzhalter ersetzen.",
+
+        skills_title: "Erworbene Skills",
+        skills_lead: "Was mir dieses Projekt tatsächlich beigebracht hat — technisch wie menschlich.",
+        skill1_t: "Projektmanagement & Product Ownership",
+        skill1_1: "Schreiben von User Stories mit klaren Akzeptanzkriterien",
+        skill1_2: "Strukturierung eines Backlogs in Epics und umsetzbare Tasks",
+        skill1_3: "Führen eines Kanban-Boards und Steuerung der laufenden Arbeit",
+        skill1_4: "Roadmap- und Timeline-Planung mit Meilenstein-Tracking",
+        skill1_5: "Priorisierung und Scope-Management unter fixer Deadline",
+        skill1_6: "Arbeit mit Jira als zentralem Planungstool",
+        skill1_7: "Agile Arbeitsweisen in einem kleinen, cross-funktionalen Team",
+        skill2_t: "Führung & Teamarbeit",
+        skill2_1: "Führung eines vierköpfigen Teams vom Kickoff bis zur Auslieferung",
+        skill2_2: "Delegation von Aufgaben anhand individueller Stärken",
+        skill2_3: "Ausrichtung des gesamten Teams auf Ziel und Status",
+        skill2_4: "Moderation von Entscheidungen bei unterschiedlichen Meinungen",
+        skill2_5: "Kommunikation des Fortschritts an einen Stakeholder (unseren Betreuer)",
+        skill2_6: "Schaffung eines Umfelds, in dem das Team die Arbeit genossen hat",
+        skill3_t: "DevOps & GitOps",
+        skill3_1: "Design und Aufbau einer CI/CD-Pipeline in GitLab CI",
+        skill3_2: "Automatisierung von Unit-Tests als Quality Gate in der Pipeline",
+        skill3_3: "Containerisierung einer Applikation mit Docker",
+        skill3_4: "Veröffentlichung und Versionierung von Images in einer Container Registry",
+        skill3_5: "Deployment und Betrieb von Workloads auf Kubernetes",
+        skill3_6: "Continuous Delivery mit ArgoCD und Rancher Fleet (GitOps)",
+        skill3_7: "Evaluierung und Vergleich von Tools zur Ableitung einer Empfehlung",
+
+        ch_title: "Herausforderungen",
+        ch1_t: "Eine neue Technologie lernen",
+        ch1_d: "Kubernetes, GitOps und das gesamte Tooling waren neu für mich. Ich musste sie schnell erlernen und — noch wichtiger — korrekt anwenden, statt sie nur irgendwie zum Laufen zu bringen.",
+        ch2_t: "Ein Team mit Jira & Kanban führen",
+        ch2_d: "Eine offene Aufgabenstellung in strukturierte Epics, User Stories und ein Kanban-Board zu übersetzen, das das Team tatsächlich täglich genutzt hat.",
+        ch3_t: "Als Teamleiter den Überblick behalten",
+        ch3_d: "Jederzeit ein klares Bild vom Gesamtprojekt und dessen Fortschritt zu haben und gleichzeitig selbst technisch beizutragen.",
+
+        concl_title: "Fazit",
+        concl_quote: "Trotz dieser Herausforderungen hat es mir große Freude bereitet, diese großartige Gruppe zu leiten — und das Projekt selbst war von Anfang bis Ende hochinteressant.",
+        footer_text: "© 2025 Kubernetes & Projektmanagement — Projektseite"
+      }
+    };
+
+    const LANG_KEY = 'siteLang';
+
+    function applyLang(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n')];
+        if (v != null) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-html')];
+        if (v != null) el.innerHTML = v;
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-aria')];
+        if (v != null) el.setAttribute('aria-label', v);
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const v = dict[el.getAttribute('data-i18n-alt')];
+        if (v != null) el.setAttribute('alt', v);
+      });
+      if (dict.page_title) document.title = dict.page_title;
+
+      document.querySelectorAll('.lang-switch button').forEach(b => {
+        const on = b.dataset.lang === lang;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+    }
+
+    // Default English; honours the language chosen on the portfolio index page.
+    let currentLang = localStorage.getItem(LANG_KEY) || 'en';
+    applyLang(currentLang);
+
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.dataset.lang;
+        localStorage.setItem(LANG_KEY, currentLang);
+        applyLang(currentLang);
+      });
+    });
+
+    // Fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('appear');
+          observer.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Active nav link on scroll
+    const sections = [...document.querySelectorAll('section')];
+    const navLinks = [...document.querySelectorAll('.nav-links a')];
+    const setActive = () => {
+      const y = window.scrollY + 76; // header offset
+      let id = 'home';
+      for (const s of sections) {
+        if (y >= s.offsetTop) id = s.id;
+      }
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    };
+    document.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+
+    // Mobile: burger menu toggle
+    const body = document.body;
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    btn?.addEventListener('click', () => {
+      const open = body.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (body.classList.contains('nav-open')) {
+        body.classList.remove('nav-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+    }));
+  </script>
+</body>
+
+</html>

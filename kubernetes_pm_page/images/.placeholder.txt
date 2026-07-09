@@ -1,0 +1,6 @@
+Drop project screenshots here, then replace the matching .media-placeholder block
+in kubernetes_pm.html with a real <img> tag.
+
+Suggested files (referenced by the HTML comments):
+  architecture.png   -> Architecture / CI-CD pipeline diagram  (#pipeline section)
+  kanban_board.png   -> Jira Kanban board screenshot           (#leadership section)
