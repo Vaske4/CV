@@ -12,24 +12,27 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Work+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="../theme.css" />
   <link rel="stylesheet" href="./kubernetes_pm.css" />
 </head>
 
 <body>
   <!-- Header -->
-  <header id="header">
+  <header class="nav-wrap">
     <div class="container">
-      <nav>
-        <div class="logo">Nikola <span>Vasic</span></div>
+      <nav class="site-nav">
+        <a href="../index.html" class="logo">Nikola <span>Vasic</span></a>
+
+        <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
+          <li><a href="#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="#overview" data-i18n="nav_overview">Overview</a></li>
+          <li><a href="#pipeline" data-i18n="nav_pipeline">Pipeline</a></li>
+          <li><a href="#leadership" data-i18n="nav_leadership">Leadership</a></li>
+          <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+          <li><a href="#challenges" data-i18n="nav_challenges">Challenges</a></li>
+        </ul>
+
         <div class="nav-cluster">
-          <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
-            <li><a href="#home" data-i18n="nav_home">Home</a></li>
-            <li><a href="#overview" data-i18n="nav_overview">Overview</a></li>
-            <li><a href="#pipeline" data-i18n="nav_pipeline">Pipeline</a></li>
-            <li><a href="#leadership" data-i18n="nav_leadership">Leadership</a></li>
-            <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
-            <li><a href="#challenges" data-i18n="nav_challenges">Challenges</a></li>
-          </ul>
           <div class="lang-switch" role="group" aria-label="Language / Sprache">
             <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
             <button type="button" data-lang="de" aria-pressed="false">DE</button>
@@ -358,6 +361,7 @@
     </div>
   </footer>
 
+  <script src="../site.js"></script>
   <script>
     // --- i18n: English (default) + German. Shares the "siteLang" localStorage key
     //     with index.html, so the language chosen on the portfolio carries over. ---
@@ -582,91 +586,7 @@
       }
     };
 
-    const LANG_KEY = 'siteLang';
-
-    function applyLang(lang) {
-      const dict = translations[lang] || translations.en;
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const v = dict[el.getAttribute('data-i18n')];
-        if (v != null) el.textContent = v;
-      });
-      document.querySelectorAll('[data-i18n-html]').forEach(el => {
-        const v = dict[el.getAttribute('data-i18n-html')];
-        if (v != null) el.innerHTML = v;
-      });
-      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-        const v = dict[el.getAttribute('data-i18n-aria')];
-        if (v != null) el.setAttribute('aria-label', v);
-      });
-      document.querySelectorAll('[data-i18n-alt]').forEach(el => {
-        const v = dict[el.getAttribute('data-i18n-alt')];
-        if (v != null) el.setAttribute('alt', v);
-      });
-      if (dict.page_title) document.title = dict.page_title;
-
-      document.querySelectorAll('.lang-switch button').forEach(b => {
-        const on = b.dataset.lang === lang;
-        b.classList.toggle('active', on);
-        b.setAttribute('aria-pressed', String(on));
-      });
-    }
-
-    // Default English; honours the language chosen on the portfolio index page.
-    let currentLang = localStorage.getItem(LANG_KEY) || 'en';
-    applyLang(currentLang);
-
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentLang = btn.dataset.lang;
-        localStorage.setItem(LANG_KEY, currentLang);
-        applyLang(currentLang);
-      });
-    });
-
-    // Fade-up animations
-    const observer = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add('appear');
-          observer.unobserve(e.target);
-        }
-      }
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Active nav link on scroll + lift the pill's shadow once the page scrolls
-    const sections = [...document.querySelectorAll('section')];
-    const navLinks = [...document.querySelectorAll('.nav-links a')];
-    const siteNav = document.querySelector('header nav');
-    const setActive = () => {
-      siteNav.classList.toggle('scrolled', window.scrollY > 20);
-
-      const y = window.scrollY + 96; // header offset
-      let id = 'home';
-      for (const s of sections) {
-        if (y >= s.offsetTop) id = s.id;
-      }
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-    };
-    document.addEventListener('scroll', setActive, { passive: true });
-    setActive();
-
-    // Mobile: burger menu toggle
-    const body = document.body;
-    const btn = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav-links');
-    btn?.addEventListener('click', () => {
-      const open = body.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', String(open));
-    });
-    nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if (body.classList.contains('nav-open')) {
-        body.classList.remove('nav-open');
-        btn?.setAttribute('aria-expanded', 'false');
-      }
-    }));
+    initSite({ translations });
   </script>
 </body>
 

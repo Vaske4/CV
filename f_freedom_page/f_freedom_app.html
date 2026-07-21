@@ -1,234 +1,327 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" /> 
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nikola Vasic | Budget Tracking App | Projekt</title>
-  <meta name="description" content="Projektseite der Budget Tracking App f:freedom – Überblick, Features, Herausforderungen und Erfahrungen." />
+  <title>Nikola Vasic | f:freedom — Budget Tracking App | Project</title>
+  <meta name="description"
+    content="University project: f:freedom, an Android budget tracking app built with Kotlin, Jetpack Compose and Microsoft SQL — overview, features, challenges and what I took away from it." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../theme.css" />
   <link rel="stylesheet" href="./f_freedom_app.css" />
 </head>
+
 <body>
-  <!-- Header -->
-  <header id="header">
+  <!-- ============ NAV ============ -->
+  <header class="nav-wrap">
     <div class="container">
-      <nav>
-        <div class="logo">Nikola <span>Vasic</span></div>
-        <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menü öffnen/schließen">☰ Menü</button>
-        <ul id="primary-navigation" class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#overview">Übersicht</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#challenges">Challenges</a></li>
-          <li><a href="#experience">Erfahrung</a></li>
-          <li><a href="../index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
+      <nav class="site-nav">
+        <a href="../index.html" class="logo">Nikola <span>Vasic</span></a>
+
+        <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
+          <li><a href="#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="#overview" data-i18n="nav_overview">Overview</a></li>
+          <li><a href="#features" data-i18n="nav_features">Features</a></li>
+          <li><a href="#challenges" data-i18n="nav_challenges">Challenges</a></li>
+          <li><a href="#experience" data-i18n="nav_experience">Takeaways</a></li>
         </ul>
+
+        <div class="nav-cluster">
+          <div class="lang-switch" role="group" aria-label="Language / Sprache">
+            <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+            <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          </div>
+          <!-- Outside .nav-links so it stays reachable when the burger menu is closed -->
+          <a href="../index.html" class="back-link" data-i18n="nav_back" data-i18n-aria="nav_back_aria"
+            aria-label="Back to portfolio">← Back</a>
+          <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" data-i18n="menu_label"
+            data-i18n-aria="menu_aria" aria-label="Open/close menu">☰ Menu</button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ============ HERO ============ -->
   <section id="home" class="section">
     <div class="container hero">
       <div class="fade-up">
-        <h1>Budget Tracking App <span>f:freedom</span></h1>
-        <p class="muted">Die App hilft Nutzer:innen, Einnahmen und Ausgaben zu tracken - für klare Finanzübersicht und bessere Entscheidungen.</p>
+        <div class="eyebrow">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="hero_eyebrow">University Project · Android</span>
+        </div>
+        <h1 data-i18n-html="hero_title">Budget Tracking App <span>f:freedom</span></h1>
+        <p data-i18n="hero_p">The app helps users track income and expenses — for a clear view of their finances and
+          better decisions, at any time.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#overview">Übersicht</a>
-          <a class="btn btn-outline" href="#experience">Erfahrung</a>
+          <a class="btn btn-primary" href="#overview" data-i18n="hero_btn_overview">Project Overview</a>
+          <a class="btn btn-outline" href="#features" data-i18n="hero_btn_features">See the features</a>
+        </div>
+        <div class="stack-chips" style="margin-top:2rem">
+          <span class="stack-chip"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt=""
+              loading="lazy">Kotlin</span>
+          <span class="stack-chip"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetpackcompose/jetpackcompose-original.svg" alt=""
+              loading="lazy">Jetpack Compose</span>
+          <span class="stack-chip"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt=""
+              loading="lazy">Android Studio</span>
+          <span class="stack-chip"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg"
+              alt="" loading="lazy">MSSQL</span>
+          <span class="stack-chip"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt=""
+              loading="lazy">GitLab</span>
         </div>
       </div>
-      <div class="fade-up phone-container">
+
+      <div class="fade-up">
         <div class="phone">
-          <div class="phone-top"></div>
+          <div class="phone-top" aria-hidden="true"></div>
           <div class="phone-screen">
-            <video src="./Start_Video.mp4" autoplay muted playsinline aria-label="App Intro Video"></video>
+            <!-- None of the videos on this page loop: each plays once and rests
+                 on its final frame, so nothing keeps moving while you read. -->
+            <video src="./Start_Video.mp4" autoplay muted playsinline data-i18n-aria="video_intro_aria"
+              aria-label="App intro animation"></video>
           </div>
-          <div class="phone-bottom"></div>
+          <div class="phone-bottom" aria-hidden="true"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OVERVIEW -->
+  <!-- ============ OVERVIEW ============ -->
   <section id="overview" class="section">
-    <div class="container grid-2">
-      <div class="fade-up">
-        <h2 class="section-title">Übersicht</h2>
-        <div class="card">
-          <h3>Budget Tracking App Projekt</h3>
-          <p><strong>Projektmitglieder:</strong> Manuel Leiter, Stefan König &amp; Nikola Vasic</p>
-          <p>Über das dritte Semester hinweg haben wir im Rahmen eines Projekts die Aufgabe erhalten, eine eigene App zu entwickeln. Unsere App wurde mit <strong>Android Studio</strong> unter Verwendung von <strong>Kotlin</strong> und <strong>Jetpack Compose</strong> erstellt.</p>
-          <p>Da wir Wirtschaftsinformatik studieren, lag eine <strong>Budget-Tracking-App</strong> nahe: Nutzer:innen erfassen <strong>Einnahmen</strong> und <strong>Ausgaben</strong> übersichtlich und behalten so jederzeit die Kontrolle über ihre Finanzen.</p>
-        </div>
-      </div>
-      <div class="fade-up">
-        <div class="phone sticky-phone">
-          <div class="phone-top"></div>
-          <div class="phone-screen" id="phoneScreen">
-            <video src="./images/App_Video.mp4" autoplay muted playsinline aria-label="App Demo"></video>
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="overview_title">Project Overview</h2>
+      <p class="section-lead" data-i18n="overview_lead">A third-semester project at FH JOANNEUM: design and build a
+        complete Android app of our own, from the data model to the UI.</p>
+
+      <div class="overview-grid">
+        <div>
+          <div class="card">
+            <h3 data-i18n="overview_card_title">The Assignment</h3>
+            <p class="team-line"><strong data-i18n="team_label">Project members:</strong> <span
+                data-i18n="team_members">Manuel Leiter, Stefan König &amp; Nikola Vasic</span></p>
+            <p data-i18n-html="overview_p1">Over the course of the third semester we were given the task of developing
+              an app of our own. We built ours in <strong>Android Studio</strong> using <strong>Kotlin</strong> and
+              <strong>Jetpack Compose</strong>.</p>
+            <p data-i18n-html="overview_p2">Since we study business informatics, a <strong>budget tracking app</strong>
+              was the obvious fit: users record <strong>income</strong> and <strong>expenses</strong> clearly and stay
+              in control of their finances at all times.</p>
           </div>
-          <div class="phone-bottom"></div>
+
+          <div class="card" style="margin-top:1.4rem">
+            <h3 data-i18n="overview_facts_title">At a Glance</h3>
+            <ul class="facts">
+              <li><strong data-i18n="fact_context_k">Context</strong> <span data-i18n="fact_context_v">University
+                  project, 3rd semester, FH JOANNEUM</span></li>
+              <li><strong data-i18n="fact_team_k">Team</strong> <span data-i18n="fact_team_v">3 students</span></li>
+              <li><strong data-i18n="fact_stack_k">Stack</strong> <span data-i18n="fact_stack_v">Kotlin, Jetpack
+                  Compose, Android Studio, Microsoft SQL</span></li>
+              <li><strong data-i18n="fact_tools_k">Collaboration</strong> <span data-i18n="fact_tools_v">GitLab —
+                  branches, merges and reviews</span></li>
+              <li><strong data-i18n="fact_focus_k">Focus</strong> <span data-i18n="fact_focus_v">Mobile development,
+                  data modelling, personal finance</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phone-container">
+          <div class="phone">
+            <div class="phone-top" aria-hidden="true"></div>
+            <div class="phone-screen">
+              <video src="./images/App_Video.mp4" autoplay muted playsinline data-i18n-aria="video_demo_aria"
+                aria-label="Walkthrough of the app"></video>
+            </div>
+            <div class="phone-bottom" aria-hidden="true"></div>
+          </div>
+          <p class="phone-caption" data-i18n="phone_caption_demo">A walk through the finished app</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- ============ FEATURES ============ -->
   <section id="features" class="section">
     <div class="container fade-up">
-      <h2 class="section-title">Features</h2>
+      <h2 class="section-title" data-i18n="features_title">Features</h2>
+      <p class="section-lead" data-i18n="features_lead">Open a feature to see the matching screen on the phone.</p>
+
       <div class="features-layout">
-        <div>
-          <!-- Feature Item Template: add class 'open' if you want one opened initially -->
+        <div class="feature-list">
           <article class="feature-item" data-image="./images/Login_Screen.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Login und Registrierung</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">01</span>
+              <span class="feature-title" data-i18n="feat1_t">Login and registration</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Sichere Registrierung und Anmeldung; Daten werden verschlüsselt gespeichert.</p>
+              <p data-i18n="feat1_d">Secure sign-up and sign-in; credentials are stored encrypted.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/Main_Overview_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Main Screen</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">02</span>
+              <span class="feature-title" data-i18n="feat2_t">Main screen</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Dashboard mit Einnahmen, Ausgaben, Kontostand. Transaktionen per Swipe löschen.</p>
+              <p data-i18n="feat2_d">A dashboard with income, expenses and balance. Transactions are deleted with a
+                swipe.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/Main_Add_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Transaktionen hinzufügen</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">03</span>
+              <span class="feature-title" data-i18n="feat3_t">Adding transactions</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Schnelles Hinzufügen von Einnahmen/Ausgaben; Kategorien für bessere Ordnung.</p>
+              <p data-i18n="feat3_d">Quickly add income or expenses, with categories to keep things tidy.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/Search_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Transaktionen suchen</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">04</span>
+              <span class="feature-title" data-i18n="feat4_t">Searching transactions</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Filter nach Beschreibung, Betrag, Kategorie oder Datum.</p>
+              <p data-i18n="feat4_d">Filter by description, amount, category or date.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/Monthly_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Monatliche Übersicht</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">05</span>
+              <span class="feature-title" data-i18n="feat5_t">Monthly overview</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Alle Transaktionen des Monats auf einen Blick – für detaillierte Auswertungen.</p>
+              <p data-i18n="feat5_d">Every transaction of the month at a glance — the basis for a closer look at where
+                the money went.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/NtoG_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Brutto/Netto Rechner</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">06</span>
+              <span class="feature-title" data-i18n="feat6_t">Gross/net calculator</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Brutto-Netto-Umrechnung inkl. Steuern und Sozialversicherungen.</p>
+              <p data-i18n="feat6_d">Converts gross to net including tax and social insurance.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/DCA-Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">DCA Calculator</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">07</span>
+              <span class="feature-title" data-i18n="feat7_t">DCA calculator</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>„What-if“-Analysen für Investitionen über Dollar-Cost-Averaging.</p>
+              <p data-i18n="feat7_d">“What if” analyses for investments made through dollar-cost averaging.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/Goals_Overview_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Goals Übersicht</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">08</span>
+              <span class="feature-title" data-i18n="feat8_t">Goals overview</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Ziele setzen und Fortschritt verfolgen – inkl. Visualisierung des verbleibenden Betrags.</p>
+              <p data-i18n="feat8_d">Set savings goals and follow the progress, including how much is still to go.</p>
             </div>
           </article>
 
           <article class="feature-item" data-image="./images/Profil_Img.png">
-            <div class="feature-header">
-              <h3 class="feature-title">Profil</h3>
-              <span class="feature-arrow">▼</span>
-            </div>
+            <button type="button" class="feature-header" aria-expanded="false">
+              <span class="feature-index" aria-hidden="true">09</span>
+              <span class="feature-title" data-i18n="feat9_t">Profile</span>
+              <span class="feature-arrow" aria-hidden="true">▼</span>
+            </button>
             <div class="feature-description">
-              <p>Level-Fortschritt basierend auf Sparleistung, Logout-Funktion.</p>
+              <p data-i18n="feat9_d">Level progress based on how much the user saves, plus the logout.</p>
             </div>
           </article>
         </div>
+
         <div class="phone-container">
           <div class="phone">
-            <div class="phone-top"></div>
+            <div class="phone-top" aria-hidden="true"></div>
             <div class="phone-screen">
-              <!-- Ersetze das img-Element durch ein video-Element -->
-              <video id="featureVideo" src="./Start_Video.mp4" autoplay muted playsinline aria-label="App Intro Video"></video>
-              <img id="featureImage" src="./images/Logo_Screen.png" alt="Feature Screenshot" style="display: none;" />
+              <!-- The intro video plays until a feature is opened; then the
+                   matching screenshot takes its place. -->
+              <video id="featureVideo" src="./Start_Video.mp4" autoplay muted playsinline
+                data-i18n-aria="video_intro_aria" aria-label="App intro animation"></video>
+              <img id="featureImage" src="" alt="" hidden />
             </div>
-            <div class="phone-bottom"></div>
+            <div class="phone-bottom" aria-hidden="true"></div>
           </div>
+          <p class="phone-caption" data-i18n="phone_caption_features">Pick a feature to see its screen</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CHALLENGES -->
+  <!-- ============ CHALLENGES ============ -->
   <section id="challenges" class="section">
     <div class="container fade-up">
-      <h2 class="section-title">Challenges</h2>
+      <h2 class="section-title" data-i18n="ch_title">Challenges</h2>
+      <p class="section-lead" data-i18n="ch_lead">The four things that made this project genuinely hard.</p>
       <div class="grid-4">
         <div class="box">
-          <h3>Kotlin &amp; Jetpack Compose</h3>
-          <p>Neue Technologie - Einarbeitung in moderne Android-Patterns und Best Practices.</p>
+          <h3 data-i18n="ch1_t">Kotlin &amp; Jetpack Compose</h3>
+          <p data-i18n="ch1_d">A new technology — getting to grips with modern Android patterns and best practices.</p>
         </div>
         <div class="box">
-          <h3>Datenbank-Verknüpfung</h3>
-          <p>Heterogene Daten je Screen - Architektur der Datenflüsse und Repositories.</p>
+          <h3 data-i18n="ch2_t">Wiring up the database</h3>
+          <p data-i18n="ch2_d">Every screen needed different data — designing the data flows and repositories behind
+            them.</p>
         </div>
         <div class="box">
-          <h3>GitLab</h3>
-          <p>Erste Team-Workflows (Branches, Merges, Reviews) - saubere Kollaboration.</p>
+          <h3 data-i18n="ch3_t">GitLab</h3>
+          <p data-i18n="ch3_d">Our first real team workflow: branches, merges and reviews, and keeping collaboration
+            clean.</p>
         </div>
         <div class="box">
-          <h3>Zeitaufwand</h3>
-          <p>Parallel zu Projekten/Prüfungen - Planung, Priorisierung und Fokus.</p>
+          <h3 data-i18n="ch4_t">Time investment</h3>
+          <p data-i18n="ch4_d">Running alongside other projects and exams — planning, prioritising and staying focused.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <!-- ============ EXPERIENCE ============ -->
   <section id="experience" class="section">
     <div class="container fade-up">
-      <h2 class="section-title">Erfahrung</h2>
+      <h2 class="section-title" data-i18n="exp_title">What I Took Away</h2>
       <div class="grid-3">
         <div class="box">
-          <h3>App &amp; Datenbank Entwicklung</h3>
-          <p>Komplette Android-App mit Kotlin/Compose und Anbindung an Microsoft SQL – von Datenmodell bis UI.</p>
+          <h3 data-i18n="exp1_t">App &amp; database development</h3>
+          <p data-i18n="exp1_d">A complete Android app in Kotlin and Compose, connected to Microsoft SQL — from the data
+            model all the way to the UI.</p>
         </div>
         <div class="box">
-          <h3>Teamarbeit</h3>
-          <p>Kommunikation, Aufgabenaufteilung und Versionierung mit GitLab für effiziente Zusammenarbeit.</p>
+          <h3 data-i18n="exp2_t">Teamwork</h3>
+          <p data-i18n="exp2_d">Communication, splitting up the work and versioning with GitLab to collaborate
+            efficiently.</p>
         </div>
         <div class="box">
-          <h3>Zeitmanagement &amp; Organisation</h3>
-          <p>Effiziente Planung bei mehreren parallelen Projekten und Prüfungsphasen.</p>
+          <h3 data-i18n="exp3_t">Time management &amp; organisation</h3>
+          <p data-i18n="exp3_d">Planning effectively across several parallel projects and exam periods.</p>
         </div>
       </div>
     </div>
@@ -236,70 +329,224 @@
 
   <footer>
     <div class="container">
-      <p class="muted">&copy; 2025 f:freedom - Projektseite</p>
+      <p class="muted" data-i18n="footer_text">© 2025 f:freedom — Project page</p>
     </div>
   </footer>
 
+  <script src="../site.js"></script>
   <script>
-    // Fade-up Observer
-    const observer = new IntersectionObserver((entries)=>{
-      for(const e of entries){ if(e.isIntersecting){ e.target.classList.add('appear'); observer.unobserve(e.target); } }
-    },{threshold:.12});
-    document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
+    // --- i18n: English (default) + German. Shares the "siteLang" localStorage
+    //     key with index.html, so the language chosen on the portfolio carries
+    //     over to this page. ---
+    const translations = {
+      en: {
+        page_title: "Nikola Vasic | f:freedom — Budget Tracking App | Project",
+        menu_label: "☰ Menu",
+        menu_aria: "Open/close menu",
+        nav_home: "Home",
+        nav_overview: "Overview",
+        nav_features: "Features",
+        nav_challenges: "Challenges",
+        nav_experience: "Takeaways",
+        nav_back: "← Back",
+        nav_back_aria: "Back to portfolio",
 
-    // Active Nav Link
-    const sections=[...document.querySelectorAll('section')];
-    const navLinks=[...document.querySelectorAll('.nav-links a')];
-    const setActive=()=>{ const y=window.scrollY+76; let id='home'; for(const s of sections){ if(y>=s.offsetTop) id=s.id;} navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id)); };
-    document.addEventListener('scroll', setActive, {passive:true}); setActive();
+        hero_eyebrow: "University Project · Android",
+        hero_title: 'Budget Tracking App <span>f:freedom</span>',
+        hero_p: "The app helps users track income and expenses — for a clear view of their finances and better decisions, at any time.",
+        hero_btn_overview: "Project Overview",
+        hero_btn_features: "See the features",
+        video_intro_aria: "App intro animation",
+        video_demo_aria: "Walkthrough of the app",
 
-    // Burger Menü
-    const body=document.body; const btn=document.querySelector('.menu-toggle'); const nav=document.querySelector('.nav-links');
-    btn?.addEventListener('click',()=>{ const open=body.classList.toggle('nav-open'); btn.setAttribute('aria-expanded',String(open)); });
-    nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ if(body.classList.contains('nav-open')){ body.classList.remove('nav-open'); btn?.setAttribute('aria-expanded','false'); }}));
+        overview_title: "Project Overview",
+        overview_lead: "A third-semester project at FH JOANNEUM: design and build a complete Android app of our own, from the data model to the UI.",
+        overview_card_title: "The Assignment",
+        team_label: "Project members:",
+        team_members: "Manuel Leiter, Stefan König & Nikola Vasic",
+        overview_p1: "Over the course of the third semester we were given the task of developing an app of our own. We built ours in <strong>Android Studio</strong> using <strong>Kotlin</strong> and <strong>Jetpack Compose</strong>.",
+        overview_p2: "Since we study business informatics, a <strong>budget tracking app</strong> was the obvious fit: users record <strong>income</strong> and <strong>expenses</strong> clearly and stay in control of their finances at all times.",
+        overview_facts_title: "At a Glance",
+        fact_context_k: "Context",
+        fact_context_v: "University project, 3rd semester, FH JOANNEUM",
+        fact_team_k: "Team",
+        fact_team_v: "3 students",
+        fact_stack_k: "Stack",
+        fact_stack_v: "Kotlin, Jetpack Compose, Android Studio, Microsoft SQL",
+        fact_tools_k: "Collaboration",
+        fact_tools_v: "GitLab — branches, merges and reviews",
+        fact_focus_k: "Focus",
+        fact_focus_v: "Mobile development, data modelling, personal finance",
+        phone_caption_demo: "A walk through the finished app",
 
-    // Feature click handling (arrow + image + description)
-    const featureCards = [...document.querySelectorAll('.feature-item')];
-    const featureImg = document.getElementById('featureImage');
+        features_title: "Features",
+        features_lead: "Open a feature to see the matching screen on the phone.",
+        phone_caption_features: "Pick a feature to see its screen",
+        feat1_t: "Login and registration",
+        feat1_d: "Secure sign-up and sign-in; credentials are stored encrypted.",
+        feat2_t: "Main screen",
+        feat2_d: "A dashboard with income, expenses and balance. Transactions are deleted with a swipe.",
+        feat3_t: "Adding transactions",
+        feat3_d: "Quickly add income or expenses, with categories to keep things tidy.",
+        feat4_t: "Searching transactions",
+        feat4_d: "Filter by description, amount, category or date.",
+        feat5_t: "Monthly overview",
+        feat5_d: "Every transaction of the month at a glance — the basis for a closer look at where the money went.",
+        feat6_t: "Gross/net calculator",
+        feat6_d: "Converts gross to net including tax and social insurance.",
+        feat7_t: "DCA calculator",
+        feat7_d: "“What if” analyses for investments made through dollar-cost averaging.",
+        feat8_t: "Goals overview",
+        feat8_d: "Set savings goals and follow the progress, including how much is still to go.",
+        feat9_t: "Profile",
+        feat9_d: "Level progress based on how much the user saves, plus the logout.",
+
+        ch_title: "Challenges",
+        ch_lead: "The four things that made this project genuinely hard.",
+        ch1_t: "Kotlin & Jetpack Compose",
+        ch1_d: "A new technology — getting to grips with modern Android patterns and best practices.",
+        ch2_t: "Wiring up the database",
+        ch2_d: "Every screen needed different data — designing the data flows and repositories behind them.",
+        ch3_t: "GitLab",
+        ch3_d: "Our first real team workflow: branches, merges and reviews, and keeping collaboration clean.",
+        ch4_t: "Time investment",
+        ch4_d: "Running alongside other projects and exams — planning, prioritising and staying focused.",
+
+        exp_title: "What I Took Away",
+        exp1_t: "App & database development",
+        exp1_d: "A complete Android app in Kotlin and Compose, connected to Microsoft SQL — from the data model all the way to the UI.",
+        exp2_t: "Teamwork",
+        exp2_d: "Communication, splitting up the work and versioning with GitLab to collaborate efficiently.",
+        exp3_t: "Time management & organisation",
+        exp3_d: "Planning effectively across several parallel projects and exam periods.",
+
+        footer_text: "© 2025 f:freedom — Project page"
+      },
+      de: {
+        page_title: "Nikola Vasic | f:freedom — Budget Tracking App | Projekt",
+        menu_label: "☰ Menü",
+        menu_aria: "Menü öffnen/schließen",
+        nav_home: "Home",
+        nav_overview: "Übersicht",
+        nav_features: "Features",
+        nav_challenges: "Challenges",
+        nav_experience: "Erfahrung",
+        nav_back: "← Zurück",
+        nav_back_aria: "Zurück zum Portfolio",
+
+        hero_eyebrow: "FH-Projekt · Android",
+        hero_title: 'Budget Tracking App <span>f:freedom</span>',
+        hero_p: "Die App hilft Nutzer:innen, Einnahmen und Ausgaben zu tracken — für eine klare Finanzübersicht und bessere Entscheidungen, jederzeit.",
+        hero_btn_overview: "Projektüberblick",
+        hero_btn_features: "Zu den Features",
+        video_intro_aria: "Intro-Animation der App",
+        video_demo_aria: "Rundgang durch die App",
+
+        overview_title: "Projektüberblick",
+        overview_lead: "Ein Projekt im dritten Semester an der FH JOANNEUM: eine vollständige eigene Android-App entwerfen und bauen — vom Datenmodell bis zum UI.",
+        overview_card_title: "Die Aufgabenstellung",
+        team_label: "Projektmitglieder:",
+        team_members: "Manuel Leiter, Stefan König & Nikola Vasic",
+        overview_p1: "Über das dritte Semester hinweg haben wir die Aufgabe erhalten, eine eigene App zu entwickeln. Unsere App wurde mit <strong>Android Studio</strong> unter Verwendung von <strong>Kotlin</strong> und <strong>Jetpack Compose</strong> erstellt.",
+        overview_p2: "Da wir Wirtschaftsinformatik studieren, lag eine <strong>Budget-Tracking-App</strong> nahe: Nutzer:innen erfassen <strong>Einnahmen</strong> und <strong>Ausgaben</strong> übersichtlich und behalten so jederzeit die Kontrolle über ihre Finanzen.",
+        overview_facts_title: "Auf einen Blick",
+        fact_context_k: "Rahmen",
+        fact_context_v: "FH-Projekt, 3. Semester, FH JOANNEUM",
+        fact_team_k: "Team",
+        fact_team_v: "3 Studierende",
+        fact_stack_k: "Stack",
+        fact_stack_v: "Kotlin, Jetpack Compose, Android Studio, Microsoft SQL",
+        fact_tools_k: "Zusammenarbeit",
+        fact_tools_v: "GitLab — Branches, Merges und Reviews",
+        fact_focus_k: "Schwerpunkt",
+        fact_focus_v: "Mobile Entwicklung, Datenmodellierung, persönliche Finanzen",
+        phone_caption_demo: "Ein Rundgang durch die fertige App",
+
+        features_title: "Features",
+        features_lead: "Feature aufklappen, um den passenden Screen am Handy zu sehen.",
+        phone_caption_features: "Feature auswählen, um den Screen zu sehen",
+        feat1_t: "Login und Registrierung",
+        feat1_d: "Sichere Registrierung und Anmeldung; Daten werden verschlüsselt gespeichert.",
+        feat2_t: "Main Screen",
+        feat2_d: "Dashboard mit Einnahmen, Ausgaben und Kontostand. Transaktionen lassen sich per Swipe löschen.",
+        feat3_t: "Transaktionen hinzufügen",
+        feat3_d: "Schnelles Hinzufügen von Einnahmen und Ausgaben; Kategorien für bessere Ordnung.",
+        feat4_t: "Transaktionen suchen",
+        feat4_d: "Filter nach Beschreibung, Betrag, Kategorie oder Datum.",
+        feat5_t: "Monatliche Übersicht",
+        feat5_d: "Alle Transaktionen des Monats auf einen Blick — die Basis für detaillierte Auswertungen.",
+        feat6_t: "Brutto/Netto-Rechner",
+        feat6_d: "Brutto-Netto-Umrechnung inklusive Steuern und Sozialversicherung.",
+        feat7_t: "DCA-Rechner",
+        feat7_d: "„What-if“-Analysen für Investitionen über Dollar-Cost-Averaging.",
+        feat8_t: "Goals-Übersicht",
+        feat8_d: "Ziele setzen und den Fortschritt verfolgen — inklusive des noch fehlenden Betrags.",
+        feat9_t: "Profil",
+        feat9_d: "Level-Fortschritt basierend auf der Sparleistung, dazu die Logout-Funktion.",
+
+        ch_title: "Challenges",
+        ch_lead: "Die vier Dinge, die dieses Projekt wirklich fordernd gemacht haben.",
+        ch1_t: "Kotlin & Jetpack Compose",
+        ch1_d: "Eine neue Technologie — Einarbeitung in moderne Android-Patterns und Best Practices.",
+        ch2_t: "Datenbank-Verknüpfung",
+        ch2_d: "Jeder Screen brauchte andere Daten — Architektur der Datenflüsse und Repositories dahinter.",
+        ch3_t: "GitLab",
+        ch3_d: "Der erste echte Team-Workflow: Branches, Merges und Reviews — und saubere Kollaboration.",
+        ch4_t: "Zeitaufwand",
+        ch4_d: "Parallel zu anderen Projekten und Prüfungen — Planung, Priorisierung und Fokus.",
+
+        exp_title: "Meine Erfahrungen",
+        exp1_t: "App- & Datenbankentwicklung",
+        exp1_d: "Eine komplette Android-App mit Kotlin und Compose, angebunden an Microsoft SQL — vom Datenmodell bis zum UI.",
+        exp2_t: "Teamarbeit",
+        exp2_d: "Kommunikation, Aufgabenaufteilung und Versionierung mit GitLab für effiziente Zusammenarbeit.",
+        exp3_t: "Zeitmanagement & Organisation",
+        exp3_d: "Effiziente Planung bei mehreren parallelen Projekten und Prüfungsphasen.",
+
+        footer_text: "© 2025 f:freedom — Projektseite"
+      }
+    };
+
+    initSite({ translations });
+
+    // --- Feature accordion: only one feature is open at a time, because the
+    //     phone next to the list can only show one screen. Opening a feature
+    //     swaps the intro video for that feature's screenshot; closing it
+    //     puts the video back. ---
+    const featureItems = [...document.querySelectorAll('.feature-item')];
+    const featureImage = document.getElementById('featureImage');
     const featureVideo = document.getElementById('featureVideo');
 
-    // Initial state: Video showing, image hidden
-    featureVideo.style.display = 'block';
-    featureImg.style.display = 'none';
+    const showIntroVideo = () => {
+      featureVideo.hidden = false;
+      featureImage.hidden = true;
+    };
 
-    featureCards.forEach(card => {
-      const header = card.querySelector('.feature-header');
+    featureItems.forEach(item => {
+      const header = item.querySelector('.feature-header');
+
       header.addEventListener('click', () => {
-        const isOpen = card.classList.toggle('open');
-        
-        // Arrow symbol shows ▼ by default; rotate on open
-        const arrow = card.querySelector('.feature-arrow');
-        if (arrow) { arrow.textContent = '▼'; }
-        
-        // Toggle description
-        document.querySelectorAll('.feature-item .feature-description').forEach(d => {
-          if (d !== card.querySelector('.feature-description')) d.style.display = 'none';
+        const willOpen = !item.classList.contains('open');
+
+        featureItems.forEach(other => {
+          other.classList.remove('open');
+          other.querySelector('.feature-header').setAttribute('aria-expanded', 'false');
         });
-        document.querySelectorAll('.feature-item').forEach(c => {
-          if (c !== card) c.classList.remove('open');
-        });
-        
-        const desc = card.querySelector('.feature-description');
-        if (desc) desc.style.display = isOpen ? 'block' : 'none';
-        
-        // Update display: show image if clicked, video if unclicked
-        const img = card.getAttribute('data-image');
-        if (isOpen && img) {
-          featureVideo.style.display = 'none';
-          featureImg.style.display = 'block';
-          featureImg.src = img;
-          featureImg.alt = card.querySelector('.feature-title')?.textContent || 'Feature';
-        } else {
-          featureVideo.style.display = 'block';
-          featureImg.style.display = 'none';
+
+        if (!willOpen) {
+          showIntroVideo();
+          return;
         }
+
+        item.classList.add('open');
+        header.setAttribute('aria-expanded', 'true');
+        featureImage.src = item.dataset.image;
+        featureImage.alt = item.querySelector('.feature-title').textContent;
+        featureImage.hidden = false;
+        featureVideo.hidden = true;
       });
     });
   </script>
 </body>
+
 </html>

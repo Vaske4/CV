@@ -4,114 +4,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Three.js Scroll Animation</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Nikola Vasic | YeahBuddy — Fitness Web App | Project</title>
+  <meta name="description"
+    content="YeahBuddy, a fitness web app built with Kotlin and Spring — walk through the screens on a 3D laptop that opens as you scroll." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="./style.css" />
   <script type="importmap">
-      {
-        "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
-          "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
-        }
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.161/build/three.module.js",
+        "jsm/": "https://cdn.jsdelivr.net/npm/three@0.161/examples/jsm/"
       }
-    </script>
+    }
+  </script>
 </head>
 
 <body id="home">
-  <header id="header">
+  <!-- ============ NAV ============ -->
+  <header class="nav-wrap">
     <div class="container">
-      <nav>
-        <div class="logo">Nikola <span>Vasic</span></div>
-        <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"
-          aria-label="Menü öffnen/schließen">☰ Menü</button>
-        <ul id="primary-navigation" class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="./Detail-WebApp.html">Details</a></li>
-          <li><a href="#footer">Explore more</a></li>
-          <li><a href="../index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
+      <nav class="site-nav">
+        <a href="../index.html" class="logo">Nikola <span>Vasic</span></a>
+
+        <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
+          <li><a href="#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="./Detail-WebApp.html" data-i18n="nav_details">Case study</a></li>
         </ul>
+
+        <div class="nav-cluster">
+          <div class="lang-switch" role="group" aria-label="Language / Sprache">
+            <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+            <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          </div>
+          <!-- Outside .nav-links so it stays reachable when the burger menu is closed -->
+          <a href="../index.html" class="back-link" data-i18n="nav_back" data-i18n-aria="nav_back_aria"
+            aria-label="Back to portfolio">← Back</a>
+          <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" data-i18n="menu_label"
+            data-i18n-aria="menu_aria" aria-label="Open/close menu">☰ Menu</button>
+        </div>
       </nav>
     </div>
   </header>
 
-  <canvas id="three-canvas"></canvas>
+  <!-- The 3D stage: a laptop that opens as you scroll and shows the screen
+       belonging to whichever panel is currently in view. -->
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
 
-  <div id="scroll-hint" class="scroll-hint">
-    <div class="scroll-hint-text">Scroll</div>
+  <div id="scroll-hint" class="scroll-hint" aria-hidden="true">
+    <div class="scroll-hint-text" data-i18n="scroll_hint">Scroll</div>
     <div class="scroll-hint-arrow">↓</div>
   </div>
 
-  <div id="container">
-    <div class="hero-panel" data-screen="./assets/logo.png">
-      <h1></h1>
-      <p></p>
-    </div>
+  <div id="scroll-track">
+    <!-- Spacer: gives the laptop room to open before the first words appear. -->
+    <div class="hero-panel panel-spacer" data-screen="./assets/yeahbuddy_logo_img.png" aria-hidden="true"></div>
 
     <div class="hero-panel" data-screen="./assets/yeahbuddy_logo_img.png">
-      <h1>yeahbuddy</h1>
-      <p>Web-application</p>
+      <div class="panel-eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        <span data-i18n="hero_eyebrow">University Project · Kotlin &amp; Spring</span>
+      </div>
+      <h1 data-i18n-html="hero_title">yeah<span>buddy</span></h1>
+      <p data-i18n="hero_p">A fitness web app that helps people plan their training, run a workout live and look back on
+        what they have already done.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/login_yb.png">
-      <h2>Login Screen</h2>
-      <p>Hier authentifizieren sich die Nutzer, um auf ihre persönlichen Daten zuzugreifen.</p>
+      <span class="panel-index" aria-hidden="true">01</span>
+      <h2 data-i18n="p1_t">Login screen</h2>
+      <p data-i18n="p1_d">Where users authenticate to get to their personal data.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/registry_yb.png">
-      <h2>Registrierung</h2>
-      <p>Neue Nutzer erstellen hier ihr Profil und legen ihre Basisdaten fest.</p>
+      <span class="panel-index" aria-hidden="true">02</span>
+      <h2 data-i18n="p2_t">Registration</h2>
+      <p data-i18n="p2_d">New users create their profile here and set their base data.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/main_menu_yb.png">
-      <h2>Main Menu</h2>
-      <p>Das Dashboard bietet einen schnellen Überblick über alle Funktionen der App.</p>
+      <span class="panel-index" aria-hidden="true">03</span>
+      <h2 data-i18n="p3_t">Main menu</h2>
+      <p data-i18n="p3_d">The dashboard gives a quick overview of everything the app can do.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/sidebar_yb.png">
-      <h2>Sidebar</h2>
-      <p>Über die Sidebar findet man das Profil und den Logout button.</p>
+      <span class="panel-index" aria-hidden="true">04</span>
+      <h2 data-i18n="p4_t">Sidebar</h2>
+      <p data-i18n="p4_d">The sidebar holds the profile and the logout button.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/workout_history_yb.png">
-      <h2>Workout History</h2>
-      <p>Diese Ansicht zeigt eine Liste aller absolvierten Workouts.</p>
+      <span class="panel-index" aria-hidden="true">05</span>
+      <h2 data-i18n="p5_t">Workout history</h2>
+      <p data-i18n="p5_d">A list of every workout the user has completed so far.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/my_workouts_yb.png">
-      <h2>My Workouts</h2>
-      <p>Hier können Nutzer ihre individuellen Trainingspläne aussuchen und das Workout starten.</p>
+      <span class="panel-index" aria-hidden="true">06</span>
+      <h2 data-i18n="p6_t">My workouts</h2>
+      <p data-i18n="p6_d">Users pick one of their own training plans here and start the workout.</p>
     </div>
 
     <div class="content-panel" data-screen="./assets/workout_live_yb.png">
-      <h2>Live workout</h2>
-      <p>Der Live-Modus unterstützt den Nutzer aktiv während der Durchführung einer Übung.</p>
+      <span class="panel-index" aria-hidden="true">07</span>
+      <h2 data-i18n="p7_t">Live workout</h2>
+      <p data-i18n="p7_d">Live mode actively guides the user through an exercise while they train.</p>
     </div>
 
-    <div class="hero-panel" id="footer" data-screen="./assets/yeahbuddy_logo_img.png">
-      <a href="./Detail-WebApp.html">
-        <h2>Details zur WebApp</h2>
-      </a>
+    <div class="hero-panel panel-outro" id="footer" data-screen="./assets/yeahbuddy_logo_img.png">
+      <h2 data-i18n="outro_t">Want the details?</h2>
+      <p data-i18n="outro_d">The tech stack, what I learned and the parts that gave us trouble — all in the written case
+        study.</p>
+      <a class="btn btn-primary" href="./Detail-WebApp.html" data-i18n="outro_btn">Read the case study</a>
     </div>
   </div>
 
-  <script type="module" src="index.js"></script>
+  <script src="../site.js"></script>
   <script>
-    // Burger Menü Logic
-    const body = document.body;
-    const btn = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav-links');
+    // --- i18n: English (default) + German. Shares the "siteLang" localStorage
+    //     key with index.html, so the language chosen on the portfolio carries
+    //     over to this page. ---
+    const translations = {
+      en: {
+        page_title: "Nikola Vasic | YeahBuddy — Fitness Web App | Project",
+        menu_label: "☰ Menu",
+        menu_aria: "Open/close menu",
+        nav_home: "Home",
+        nav_details: "Case study",
+        nav_back: "← Back",
+        nav_back_aria: "Back to portfolio",
+        scroll_hint: "Scroll",
 
-    btn?.addEventListener('click', () => {
-      const open = body.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', String(open));
-    });
+        hero_eyebrow: "University Project · Kotlin & Spring",
+        hero_title: 'yeah<span>buddy</span>',
+        hero_p: "A fitness web app that helps people plan their training, run a workout live and look back on what they have already done.",
 
-    nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      if (body.classList.contains('nav-open')) {
-        body.classList.remove('nav-open');
-        btn?.setAttribute('aria-expanded', 'false');
+        p1_t: "Login screen",
+        p1_d: "Where users authenticate to get to their personal data.",
+        p2_t: "Registration",
+        p2_d: "New users create their profile here and set their base data.",
+        p3_t: "Main menu",
+        p3_d: "The dashboard gives a quick overview of everything the app can do.",
+        p4_t: "Sidebar",
+        p4_d: "The sidebar holds the profile and the logout button.",
+        p5_t: "Workout history",
+        p5_d: "A list of every workout the user has completed so far.",
+        p6_t: "My workouts",
+        p6_d: "Users pick one of their own training plans here and start the workout.",
+        p7_t: "Live workout",
+        p7_d: "Live mode actively guides the user through an exercise while they train.",
+
+        outro_t: "Want the details?",
+        outro_d: "The tech stack, what I learned and the parts that gave us trouble — all in the written case study.",
+        outro_btn: "Read the case study"
+      },
+      de: {
+        page_title: "Nikola Vasic | YeahBuddy — Fitness Web App | Projekt",
+        menu_label: "☰ Menü",
+        menu_aria: "Menü öffnen/schließen",
+        nav_home: "Home",
+        nav_details: "Case Study",
+        nav_back: "← Zurück",
+        nav_back_aria: "Zurück zum Portfolio",
+        scroll_hint: "Scrollen",
+
+        hero_eyebrow: "FH-Projekt · Kotlin & Spring",
+        hero_title: 'yeah<span>buddy</span>',
+        hero_p: "Eine Fitness-Web-App, die Nutzer:innen hilft, ihr Training zu planen, ein Workout live durchzuführen und Vergangenes nachzuvollziehen.",
+
+        p1_t: "Login-Screen",
+        p1_d: "Hier authentifizieren sich die Nutzer:innen, um auf ihre persönlichen Daten zuzugreifen.",
+        p2_t: "Registrierung",
+        p2_d: "Neue Nutzer:innen erstellen hier ihr Profil und legen ihre Basisdaten fest.",
+        p3_t: "Hauptmenü",
+        p3_d: "Das Dashboard bietet einen schnellen Überblick über alle Funktionen der App.",
+        p4_t: "Sidebar",
+        p4_d: "Über die Sidebar erreicht man das Profil und den Logout-Button.",
+        p5_t: "Workout-Historie",
+        p5_d: "Diese Ansicht zeigt eine Liste aller absolvierten Workouts.",
+        p6_t: "Meine Workouts",
+        p6_d: "Hier wählen Nutzer:innen einen ihrer Trainingspläne aus und starten das Workout.",
+        p7_t: "Live-Workout",
+        p7_d: "Der Live-Modus unterstützt aktiv während der Durchführung einer Übung.",
+
+        outro_t: "Mehr Details?",
+        outro_d: "Techstack, Learnings und die Stellen, die uns Kopfzerbrechen bereitet haben — alles in der Case Study.",
+        outro_btn: "Case Study lesen"
       }
-    }));
+    };
+
+    initSite({ translations });
+
+    // The hint has done its job once the user has actually scrolled.
+    const scrollHint = document.getElementById('scroll-hint');
+    document.addEventListener('scroll', () => {
+      scrollHint.classList.toggle('hidden', window.scrollY > 120);
+    }, { passive: true });
+
+    // The panels are hidden until index.js says the laptop has opened. If the
+    // 3D stage never starts — no WebGL, the three.js CDN blocked, an import map
+    // the browser does not support — that signal never arrives and the whole
+    // page would read as blank. Fall back to a plain, readable layout instead.
+    setTimeout(() => {
+      if (document.documentElement.dataset.scene === 'ready') return;
+      document.body.classList.add('scene-visible-fallback', 'content-visible');
+    }, 3000);
   </script>
+  <script type="module" src="index.js"></script>
 </body>
 
 </html>

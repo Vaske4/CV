@@ -2,105 +2,323 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YeahBuddy - WebApp Details</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Montserrat:wght@700&family=Inter:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikola Vasic | YeahBuddy — Case Study | Project</title>
+  <meta name="description"
+    content="Case study for YeahBuddy, a fitness web app built with Kotlin, Spring and MariaDB — tech stack, learnings around MVC and REST, and the challenges we ran into." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Work+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../theme.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body id="detail-page">
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <div class="logo">Nikola <span>Vasic</span></div>
-                <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false"
-                    aria-label="Menü öffnen/schließen">☰ Menü</button>
-                <ul id="primary-navigation" class="nav-links">
-                    <li><a href="./index.html" class="back-link" aria-label="Zurück zum Portfolio">← Zurück</a></li>
-                </ul>
-            </nav>
+  <!-- ============ NAV ============ -->
+  <header class="nav-wrap">
+    <div class="container">
+      <nav class="site-nav">
+        <a href="../index.html" class="logo">Nikola <span>Vasic</span></a>
+
+        <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
+          <li><a href="./index.html" data-i18n="nav_experience">3D walkthrough</a></li>
+          <li><a href="#stack" data-i18n="nav_stack">Tech stack</a></li>
+          <li><a href="#learnings" data-i18n="nav_learnings">Learnings</a></li>
+          <li><a href="#challenges" data-i18n="nav_challenges">Challenges</a></li>
+        </ul>
+
+        <div class="nav-cluster">
+          <div class="lang-switch" role="group" aria-label="Language / Sprache">
+            <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+            <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          </div>
+          <!-- Outside .nav-links so it stays reachable when the burger menu is closed -->
+          <a href="../index.html" class="back-link" data-i18n="nav_back" data-i18n-aria="nav_back_aria"
+            aria-label="Back to portfolio">← Back</a>
+          <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false" data-i18n="menu_label"
+            data-i18n-aria="menu_aria" aria-label="Open/close menu">☰ Menu</button>
         </div>
-    </header>
+      </nav>
+    </div>
+  </header>
 
-    <main class="detail-main">
-        <div class="container detail-grid">
-            <!-- Left Column: Content -->
-            <div class="content-column">
-                <section class="detail-section">
-                    <h2>Techstack</h2>
-                    <p class="section-subtitle">Technologien, die für das Projekt verwendet wurden.</p>
-                    <div class="tags-container">
-                        <span class="tag">IntelliJ</span>
-                        <span class="tag">Gradle</span>
-                        <span class="tag">Kotlin</span>
-                        <span class="tag">Spring</span>
-                    </div>
-                </section>
-
-                <section class="detail-section">
-                    <h2>Learnings</h2>
-                    <p class="section-subtitle">Wichtige Erkenntnisse und Fähigkeiten.</p>
-                    <ul class="detail-list">
-                        <li>Routing</li>
-                        <li>Using the MVC method</li>
-                        <li>Verknüpfung mit einer Datenbank</li>
-                        <li>Wie REST-API funktioniert</li>
-                        <li>SQL Injection in HTML</li>
-                        <li>Dynamische Variablen in HTML</li>
-                        <li>Bootstrap</li>
-                        <li>Gemeinsames Arbeiten mit GitLab</li>
-                    </ul>
-                </section>
-
-                <section class="detail-section">
-                    <h2>Challenges</h2>
-                    <p class="section-subtitle">Herausforderungen während der Entwicklung.</p>
-                    <ul class="detail-list">
-                        <li>Verknüpfung von Features</li>
-                        <li>Datenbank richtig nutzen</li>
-                        <li>Mergen bei GitLab</li>
-                    </ul>
-                </section>
-            </div>
-
-            <!-- Right Column: Tablet Mockup -->
-            <div class="tablet-column">
-                <div class="tablet-mockup">
-                    <div class="tablet-camera"></div>
-                    <div class="tablet-screen">
-                        <!-- Video -->
-                        <video src="./assets/video_yb.mp4" autoplay muted loop playsinline class="tablet-video"></video>
-                    </div>
-                </div>
-                <div class="tablet-home-button"></div>
-            </div>
+  <!-- ============ HERO ============ -->
+  <section id="home" class="section">
+    <div class="container detail-hero">
+      <div class="fade-up">
+        <div class="eyebrow">
+          <span class="dot" aria-hidden="true"></span>
+          <span data-i18n="hero_eyebrow">University Project · Kotlin &amp; Spring</span>
         </div>
-    </main>
+        <h1 data-i18n-html="hero_title">yeah<span>buddy</span> — the case study</h1>
+        <p data-i18n="hero_p">A fitness web app built with Kotlin and Spring on top of a MariaDB database. Here is what
+          it was made of, what it taught me and where it fought back.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="./index.html" data-i18n="hero_btn_3d">See the 3D walkthrough</a>
+          <a class="btn btn-outline" href="#learnings" data-i18n="hero_btn_learnings">What I learned</a>
+        </div>
+      </div>
 
-    <script>
-        // Burger Menü Logic
-        const body = document.body;
-        const btn = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('.nav-links');
+      <div class="fade-up">
+        <div class="tablet">
+          <div class="tablet-camera" aria-hidden="true"></div>
+          <div class="tablet-screen">
+            <video src="./assets/video_yb.mp4" autoplay muted loop playsinline data-i18n-aria="demo_video_aria"
+              aria-label="Screen recording of the YeahBuddy web app"></video>
+          </div>
+        </div>
+        <p class="tablet-caption" data-i18n="demo_caption">The app running end to end</p>
+      </div>
+    </div>
+  </section>
 
-        btn?.addEventListener('click', () => {
-            const open = body.classList.toggle('nav-open');
-            btn.setAttribute('aria-expanded', String(open));
-        });
+  <!-- ============ TECH STACK ============ -->
+  <section id="stack" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="stack_title">Tech Stack</h2>
+      <p class="section-lead" data-i18n="stack_lead">The technologies we used to build the project.</p>
 
-        nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            if (body.classList.contains('nav-open')) {
-                body.classList.remove('nav-open');
-                btn?.setAttribute('aria-expanded', 'false');
-            }
-        }));
-    </script>
+      <div class="grid-2">
+        <div class="tool-stack" aria-label="Tech stack">
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin"
+              loading="lazy">
+            <span>Kotlin</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring"
+              loading="lazy">
+            <span>Spring</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg" alt="MariaDB"
+              loading="lazy">
+            <span>MariaDB</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ"
+              loading="lazy">
+            <span>IntelliJ</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gradle/gradle-original.svg" alt="Gradle"
+              loading="lazy">
+            <span>Gradle</span>
+          </div>
+          <div class="tool-chip">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+              alt="Bootstrap" loading="lazy">
+            <span>Bootstrap</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-i18n="facts_title">At a Glance</h3>
+          <ul class="facts">
+            <li><strong data-i18n="fact_type_k">Type</strong> <span data-i18n="fact_type_v">Fitness web app</span></li>
+            <li><strong data-i18n="fact_lang_k">Language</strong> <span data-i18n="fact_lang_v">Kotlin</span></li>
+            <li><strong data-i18n="fact_frame_k">Framework</strong> <span data-i18n="fact_frame_v">Spring, server-side
+                rendered</span></li>
+            <li><strong data-i18n="fact_db_k">Database</strong> <span data-i18n="fact_db_v">MariaDB</span></li>
+            <li><strong data-i18n="fact_arch_k">Architecture</strong> <span data-i18n="fact_arch_v">MVC with a REST
+                API</span></li>
+            <li><strong data-i18n="fact_collab_k">Collaboration</strong> <span data-i18n="fact_collab_v">GitLab</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARNINGS ============ -->
+  <section id="learnings" class="section">
+    <div class="container fade-up">
+      <div class="highlight">
+        <span class="role-badge" data-i18n="learn_badge">Learnings</span>
+        <h2 class="section-title" data-i18n="learn_title">What I Took Away</h2>
+        <div class="grid-2">
+          <div>
+            <p class="muted" data-i18n="learn_lead">This was the project where the pieces of a server-rendered web
+              application finally clicked into place — how a request travels from a route through a controller to a
+              template, and where the database fits in.</p>
+          </div>
+          <div>
+            <ul class="check-list">
+              <li data-i18n="learn1">Routing</li>
+              <li data-i18n="learn2">Working with the MVC pattern</li>
+              <li data-i18n="learn3">Connecting the application to a database</li>
+              <li data-i18n="learn4">How a REST API actually works</li>
+              <li data-i18n="learn5">SQL injection and how templates have to guard against it</li>
+              <li data-i18n="learn6">Dynamic variables inside HTML templates</li>
+              <li data-i18n="learn7">Bootstrap for the layout</li>
+              <li data-i18n="learn8">Working together in GitLab</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHALLENGES ============ -->
+  <section id="challenges" class="section">
+    <div class="container fade-up">
+      <h2 class="section-title" data-i18n="ch_title">Challenges</h2>
+      <p class="section-lead" data-i18n="ch_lead">The three things that cost us the most time during development.</p>
+      <div class="grid-3">
+        <div class="box">
+          <h3 data-i18n="ch1_t">Tying the features together</h3>
+          <p data-i18n="ch1_d">Each screen worked on its own; making them share state and flow into one another was the
+            harder half.</p>
+        </div>
+        <div class="box">
+          <h3 data-i18n="ch2_t">Using the database properly</h3>
+          <p data-i18n="ch2_d">Modelling the data so that workouts, plans and history could be queried without fighting
+            the schema.</p>
+        </div>
+        <div class="box">
+          <h3 data-i18n="ch3_t">Merging in GitLab</h3>
+          <p data-i18n="ch3_d">Several people in the same files — learning to branch, review and resolve conflicts
+            without losing work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="muted" data-i18n="footer_text">© 2025 YeahBuddy — Project page</p>
+    </div>
+  </footer>
+
+  <script src="../site.js"></script>
+  <script>
+    // --- i18n: English (default) + German. Shares the "siteLang" localStorage
+    //     key with index.html, so the language chosen on the portfolio carries
+    //     over to this page. ---
+    const translations = {
+      en: {
+        page_title: "Nikola Vasic | YeahBuddy — Case Study | Project",
+        menu_label: "☰ Menu",
+        menu_aria: "Open/close menu",
+        nav_experience: "3D walkthrough",
+        nav_stack: "Tech stack",
+        nav_learnings: "Learnings",
+        nav_challenges: "Challenges",
+        nav_back: "← Back",
+        nav_back_aria: "Back to portfolio",
+
+        hero_eyebrow: "University Project · Kotlin & Spring",
+        hero_title: 'yeah<span>buddy</span> — the case study',
+        hero_p: "A fitness web app built with Kotlin and Spring on top of a MariaDB database. Here is what it was made of, what it taught me and where it fought back.",
+        hero_btn_3d: "See the 3D walkthrough",
+        hero_btn_learnings: "What I learned",
+        demo_caption: "The app running end to end",
+        demo_video_aria: "Screen recording of the YeahBuddy web app",
+
+        stack_title: "Tech Stack",
+        stack_lead: "The technologies we used to build the project.",
+        facts_title: "At a Glance",
+        fact_type_k: "Type",
+        fact_type_v: "Fitness web app",
+        fact_lang_k: "Language",
+        fact_lang_v: "Kotlin",
+        fact_frame_k: "Framework",
+        fact_frame_v: "Spring, server-side rendered",
+        fact_db_k: "Database",
+        fact_db_v: "MariaDB",
+        fact_arch_k: "Architecture",
+        fact_arch_v: "MVC with a REST API",
+        fact_collab_k: "Collaboration",
+        fact_collab_v: "GitLab",
+
+        learn_badge: "Learnings",
+        learn_title: "What I Took Away",
+        learn_lead: "This was the project where the pieces of a server-rendered web application finally clicked into place — how a request travels from a route through a controller to a template, and where the database fits in.",
+        learn1: "Routing",
+        learn2: "Working with the MVC pattern",
+        learn3: "Connecting the application to a database",
+        learn4: "How a REST API actually works",
+        learn5: "SQL injection and how templates have to guard against it",
+        learn6: "Dynamic variables inside HTML templates",
+        learn7: "Bootstrap for the layout",
+        learn8: "Working together in GitLab",
+
+        ch_title: "Challenges",
+        ch_lead: "The three things that cost us the most time during development.",
+        ch1_t: "Tying the features together",
+        ch1_d: "Each screen worked on its own; making them share state and flow into one another was the harder half.",
+        ch2_t: "Using the database properly",
+        ch2_d: "Modelling the data so that workouts, plans and history could be queried without fighting the schema.",
+        ch3_t: "Merging in GitLab",
+        ch3_d: "Several people in the same files — learning to branch, review and resolve conflicts without losing work.",
+
+        footer_text: "© 2025 YeahBuddy — Project page"
+      },
+      de: {
+        page_title: "Nikola Vasic | YeahBuddy — Case Study | Projekt",
+        menu_label: "☰ Menü",
+        menu_aria: "Menü öffnen/schließen",
+        nav_experience: "3D-Rundgang",
+        nav_stack: "Techstack",
+        nav_learnings: "Learnings",
+        nav_challenges: "Challenges",
+        nav_back: "← Zurück",
+        nav_back_aria: "Zurück zum Portfolio",
+
+        hero_eyebrow: "FH-Projekt · Kotlin & Spring",
+        hero_title: 'yeah<span>buddy</span> — die Case Study',
+        hero_p: "Eine Fitness-Web-App mit Kotlin und Spring auf einer MariaDB-Datenbank. Hier steht, woraus sie bestand, was sie mir beigebracht hat und wo sie sich gewehrt hat.",
+        hero_btn_3d: "Zum 3D-Rundgang",
+        hero_btn_learnings: "Was ich gelernt habe",
+        demo_caption: "Die App von Anfang bis Ende",
+        demo_video_aria: "Bildschirmaufnahme der YeahBuddy Web-App",
+
+        stack_title: "Techstack",
+        stack_lead: "Die Technologien, die für das Projekt verwendet wurden.",
+        facts_title: "Auf einen Blick",
+        fact_type_k: "Art",
+        fact_type_v: "Fitness-Web-App",
+        fact_lang_k: "Sprache",
+        fact_lang_v: "Kotlin",
+        fact_frame_k: "Framework",
+        fact_frame_v: "Spring, serverseitig gerendert",
+        fact_db_k: "Datenbank",
+        fact_db_v: "MariaDB",
+        fact_arch_k: "Architektur",
+        fact_arch_v: "MVC mit REST API",
+        fact_collab_k: "Zusammenarbeit",
+        fact_collab_v: "GitLab",
+
+        learn_badge: "Learnings",
+        learn_title: "Meine Learnings",
+        learn_lead: "In diesem Projekt haben sich die Teile einer serverseitig gerenderten Webanwendung endlich zusammengefügt — wie ein Request von der Route über den Controller ins Template wandert und wo die Datenbank dabei steht.",
+        learn1: "Routing",
+        learn2: "Arbeiten nach dem MVC-Muster",
+        learn3: "Verknüpfung der Applikation mit einer Datenbank",
+        learn4: "Wie eine REST-API tatsächlich funktioniert",
+        learn5: "SQL Injection und wie Templates davor schützen müssen",
+        learn6: "Dynamische Variablen in HTML-Templates",
+        learn7: "Bootstrap für das Layout",
+        learn8: "Gemeinsames Arbeiten mit GitLab",
+
+        ch_title: "Challenges",
+        ch_lead: "Die drei Dinge, die uns in der Entwicklung die meiste Zeit gekostet haben.",
+        ch1_t: "Verknüpfung der Features",
+        ch1_d: "Jeder Screen funktionierte für sich; sie dazu zu bringen, Zustand zu teilen und ineinander überzugehen, war die schwierigere Hälfte.",
+        ch2_t: "Die Datenbank richtig nutzen",
+        ch2_d: "Die Daten so modellieren, dass Workouts, Pläne und Historie abfragbar sind, ohne gegen das Schema zu kämpfen.",
+        ch3_t: "Mergen in GitLab",
+        ch3_d: "Mehrere Personen in denselben Dateien — branchen, reviewen und Konflikte lösen, ohne Arbeit zu verlieren.",
+
+        footer_text: "© 2025 YeahBuddy — Projektseite"
+      }
+    };
+
+    initSite({ translations });
+  </script>
 </body>
 
 </html>
