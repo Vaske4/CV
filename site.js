@@ -48,7 +48,27 @@ function initSite(options = {}) {
         b.classList.toggle('active', on);
         b.setAttribute('aria-pressed', String(on));
       });
+      placeThumbs();
     };
+
+    // The sliding thumb behind the active EN/DE button. It is measured,
+    // not hard-coded, because the button padding changes at breakpoints.
+    const switches = [...document.querySelectorAll('.lang-switch')];
+    const placeThumbs = () => switches.forEach(sw => {
+      const active = sw.querySelector('button.active');
+      if (!active) return;
+      sw.style.setProperty('--thumb-x', active.offsetLeft + 'px');
+      sw.style.setProperty('--thumb-w', active.offsetWidth + 'px');
+      sw.classList.add('has-thumb');
+    });
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(placeThumbs);
+      switches.forEach(sw => ro.observe(sw));
+    }
+    // Place the thumb first, then allow it to animate — otherwise it
+    // slides in from the left edge on every page load.
+    requestAnimationFrame(() => requestAnimationFrame(() =>
+      switches.forEach(sw => sw.classList.add('thumb-ready'))));
 
     // English on the first visit; the manual choice is remembered and
     // shared across pages through localStorage.
@@ -76,8 +96,10 @@ function initSite(options = {}) {
       }
     }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
 
+    // A custom property, not transitionDelay: the delay must only reach the
+    // reveal animation, never a card's hover/press transition.
     revealTargets.forEach((el, i) => {
-      el.style.transitionDelay = ((i % 3) * 0.07) + 's';
+      el.style.setProperty('--reveal-delay', ((i % 3) * 0.06) + 's');
       observer.observe(el);
     });
 
@@ -120,15 +142,27 @@ function initSite(options = {}) {
   const menuBtn = document.querySelector('.menu-toggle');
   const navList = document.querySelector('.nav-links');
 
+  const closeMenu = () => {
+    if (!body.classList.contains('nav-open')) return;
+    body.classList.remove('nav-open');
+    menuBtn?.setAttribute('aria-expanded', 'false');
+  };
+
   menuBtn?.addEventListener('click', () => {
     const open = body.classList.toggle('nav-open');
     menuBtn.setAttribute('aria-expanded', String(open));
   });
 
-  navList?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    if (body.classList.contains('nav-open')) {
-      body.classList.remove('nav-open');
-      menuBtn?.setAttribute('aria-expanded', 'false');
+  navList?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // Never trap the visitor: Escape or a tap anywhere outside closes it.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && body.classList.contains('nav-open')) {
+      closeMenu();
+      menuBtn?.focus();
     }
-  }));
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (!siteNav?.contains(e.target)) closeMenu();
+  });
 }

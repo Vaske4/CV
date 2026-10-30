@@ -1,8 +1,8 @@
 /* ===========================================================
    styles.css — portfolio index (index.html)
 
-   Palette, nav, buttons, cards, grids and the responsive rules
-   live in ../theme.css. This file only holds what is unique to
+   Palette, type scale, nav, buttons, cards, grids and the responsive
+   rules live in ../theme.css. This file only holds what is unique to
    the landing page: the hero, the about grid, education rows,
    the project grid and the contact panel.
    =========================================================== */
@@ -17,9 +17,9 @@
 }
 
 .hero h1 {
-    font-size: clamp(38px, 6.2vw, 58px);
-    line-height: 1.08;
-    letter-spacing: -.01em;
+    font-size: var(--fs-display);
+    line-height: 1.05;
+    letter-spacing: -.022em;
     margin: 0;
     text-wrap: balance;
 }
@@ -30,10 +30,10 @@
 }
 
 .hero-lede {
-    font-size: 16.5px;
-    line-height: 1.65;
+    font-size: var(--fs-body);
+    line-height: 1.6;
     color: var(--muted);
-    max-width: 470px;
+    max-width: 30rem;
     margin: 22px 0 0;
 }
 
@@ -45,13 +45,16 @@
 }
 
 .stat-num {
-    font-size: 30px;
+    font-size: var(--fs-title1);
     font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -.02em;
     color: var(--ink);
 }
 
 .stat-label {
-    font-size: 12.5px;
+    font-size: var(--fs-footnote);
+    letter-spacing: .01em;
     color: var(--muted);
 }
 
@@ -66,13 +69,14 @@
     max-width: 100%;
 }
 
+/* Static tilt. The old 7 s float loop sat right in the slow-oscillation
+   range that triggers motion sensitivity, and it overwrote the rotate. */
 .photo-frame {
-    background: #efe3cd;
+    background: var(--frame);
     border-radius: 32px;
     padding: 16px;
     max-width: 100%;
     transform: rotate(1.5deg);
-    animation: floaty 7s ease-in-out infinite;
 }
 
 /* Width must stay a definite length: a percentage here is cyclic against the
@@ -92,12 +96,12 @@
     right: -14px;
     background: var(--gold);
     color: var(--dark);
-    font-size: 12px;
+    font-size: var(--fs-caption);
     font-weight: 600;
     letter-spacing: .04em;
     padding: 8px 16px;
     border-radius: 999px;
-    box-shadow: 0 6px 16px rgba(60, 45, 30, .22);
+    box-shadow: 0 6px 16px rgba(var(--shadow-rgb), .22);
 }
 
 /* ============ ABOUT ============ */
@@ -116,34 +120,22 @@
     flex-direction: column;
 }
 
-.kicker-dark {
-    font-size: 11.5px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: #3d2a12;
-    font-weight: 700;
-    margin-bottom: 14px;
-}
-
-.kicker-soft {
-    font-size: 11.5px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--brand-deep);
-    font-weight: 600;
-    margin-bottom: 16px;
+.card-ocker .kicker,
+.card .kicker {
+    margin-bottom: 1rem;
 }
 
 .pl-title {
-    font-size: 23px;
-    line-height: 1.32;
+    font-size: var(--fs-title2);
+    line-height: 1.25;
+    letter-spacing: -.01em;
     font-weight: 500;
 }
 
 .pl-body {
-    font-size: 13.5px;
+    font-size: var(--fs-callout);
     line-height: 1.6;
-    color: rgba(255, 253, 248, .92);
+    color: var(--cream);
     margin: 14px 0 22px;
 }
 
@@ -153,8 +145,8 @@
 }
 
 .about-text p {
-    font-size: 14.5px;
-    line-height: 1.7;
+    font-size: var(--fs-body);
+    line-height: 1.65;
     color: var(--muted);
     margin: 0 0 14px;
 }
@@ -174,26 +166,29 @@
 }
 
 .edu-years {
-    font-size: 13px;
+    font-size: var(--fs-footnote);
     font-weight: 600;
-    color: var(--brand);
-    padding-top: 4px;
+    letter-spacing: .01em;
+    color: var(--brand-deep);
+    padding-top: 6px;
 }
 
 .edu-degree {
-    font-size: 24px;
+    font-size: var(--fs-title2);
+    line-height: 1.25;
+    letter-spacing: -.01em;
     color: var(--ink);
 }
 
 .edu-school {
-    font-size: 13.5px;
+    font-size: var(--fs-footnote);
     color: var(--brand-deep);
     font-weight: 500;
     margin: 4px 0 10px;
 }
 
 .edu-detail {
-    font-size: 14px;
+    font-size: var(--fs-callout);
     line-height: 1.6;
     color: var(--muted);
     max-width: 640px;
@@ -217,21 +212,17 @@
     transition: transform .35s var(--ease);
 }
 
-.project-featured:hover {
-    transform: translateY(-4px);
-    color: var(--cream);
-}
-
 .project-featured h3 {
-    font-size: 29px;
-    line-height: 1.2;
+    font-size: 1.875rem;
+    line-height: 1.15;
+    letter-spacing: -.015em;
     margin: 0;
 }
 
 .project-featured p {
-    font-size: 14.5px;
-    line-height: 1.62;
-    color: rgba(255, 253, 248, .92);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--cream);
     margin: 0;
 }
 
@@ -239,10 +230,15 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13.5px;
+    font-size: var(--fs-footnote);
     font-weight: 700;
-    color: var(--dark);
+    color: var(--cream);
     margin-top: auto;
+}
+
+/* The arrow hints where the tap goes. */
+.case-link [aria-hidden] {
+    transition: transform .35s var(--ease);
 }
 
 .project-list {
@@ -261,25 +257,45 @@
     transition: transform .35s var(--ease), border-color .3s;
 }
 
-.project-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--brand);
+@media (hover: hover) {
+    .project-featured:hover {
+        transform: translateY(-4px);
+        color: var(--cream);
+    }
+
+    .project-featured:hover .case-link [aria-hidden] {
+        transform: translateX(4px);
+    }
+
+    .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--brand);
+    }
+}
+
+/* Cards sink slightly under the finger; the press is fast, the release
+   uses the slower ease back. */
+.project-featured:active,
+.project-card:active {
+    transform: scale(.985);
+    transition-duration: .1s;
 }
 
 .project-card h3 {
-    font-size: 20px;
+    font-size: var(--fs-title3);
     color: var(--ink);
     margin: 0;
 }
 
 .pc-desc {
-    font-size: 13.5px;
+    font-size: var(--fs-callout);
     line-height: 1.55;
     color: var(--muted);
 }
 
 .pc-stack {
-    font-size: 12px;
+    font-size: var(--fs-footnote);
+    letter-spacing: .01em;
     color: var(--brand-deep);
     font-weight: 500;
     margin-top: 2px;
@@ -302,7 +318,7 @@
     width: 260px;
     height: 260px;
     border-radius: 50%;
-    background: radial-gradient(circle, #c78a3e, transparent 70%);
+    background: radial-gradient(circle, #ad6c2a, transparent 70%);
 }
 
 .contact-inner {
@@ -310,26 +326,22 @@
     max-width: 560px;
 }
 
-.contact-kicker {
-    font-size: 11.5px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: #3d2a12;
-    margin-bottom: 14px;
+.contact-inner .kicker {
+    margin-bottom: 1rem;
 }
 
 .contact-title {
-    font-size: clamp(28px, 4.4vw, 40px);
-    line-height: 1.15;
+    font-size: var(--fs-title1);
+    line-height: 1.1;
+    letter-spacing: -.02em;
     margin: 0 0 18px;
     text-wrap: balance;
 }
 
 .contact-body {
-    font-size: 15.5px;
-    line-height: 1.65;
-    color: rgba(255, 253, 248, .92);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    color: var(--cream);
     margin: 0 0 30px;
 }
 
@@ -340,9 +352,18 @@
 }
 
 .contact-loc {
-    font-size: 13px;
-    color: rgba(255, 253, 248, .8);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-footnote);
+    color: var(--cream);
     margin-top: 26px;
+}
+
+.contact-loc svg {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
 }
 
 /* ============ FOOTER ============ */
@@ -354,17 +375,17 @@
     flex-wrap: wrap;
     gap: 10px;
     text-align: left;
-    font-size: 12.5px;
+    font-size: var(--fs-footnote);
 }
 
 .footer-mark {
-    font-size: 15px;
+    font-size: var(--fs-callout);
     color: var(--ink);
 }
 
 .footer-mark span {
     font-style: italic;
-    color: var(--brand);
+    color: var(--brand-deep);
 }
 
 /* ============ RESPONSIVE ============ */
@@ -443,7 +464,10 @@
 @media (prefers-reduced-motion: reduce) {
 
     .project-featured:hover,
-    .project-card:hover {
+    .project-card:hover,
+    .project-featured:active,
+    .project-card:active,
+    .project-featured:hover .case-link [aria-hidden] {
         transform: none;
     }
 }

@@ -135,3 +135,11 @@
     padding: 1.5rem;
   }
 }
+
+/* Leadership panel: "What I owned" sits in the right column, level with
+   the first paragraph on the left. Stacked (≤960px) it keeps its gap. */
+@media (min-width: 961px) {
+  .highlight .grid-2 > div > h3:first-child {
+    margin-top: 1.0625rem;
+  }
+}

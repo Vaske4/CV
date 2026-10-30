@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-scheme="auto">
 
 <head>
   <meta charset="UTF-8" />
@@ -24,11 +24,10 @@
         <a href="#home" class="brand-mark serif">Nikola <span>Vasic</span></a>
 
         <ul id="primary-navigation" class="nav-links" aria-label="Main navigation">
-          <li><a href="#home" class="active" data-i18n="nav_home">Home</a></li>
           <li><a href="#about" data-i18n="nav_about">About</a></li>
           <li><a href="#education" data-i18n="nav_education">Education</a></li>
           <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
-          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+          <li class="nav-mobile-only"><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         </ul>
 
         <div class="nav-cluster">
@@ -47,7 +46,7 @@
   <!-- ============ HERO ============ -->
   <section id="home">
     <div class="container hero">
-      <div class="fade-up">
+      <div>
         <div class="eyebrow">
           <span class="dot" aria-hidden="true"></span>
           <span data-i18n="hero_eyebrow">Welcome — nice to meet you</span>
@@ -70,20 +69,15 @@
             <div class="stat-num serif">4</div>
             <div class="stat-label" data-i18n="stat_projects">Shipped projects</div>
           </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div>
-            <div class="stat-num serif">1</div>
-            <div class="stat-label" data-i18n="stat_lead">Team lead role</div>
-          </div>
         </div>
       </div>
 
-      <div class="hero-photo fade-up">
+      <div class="hero-photo">
         <div class="photo-frame">
           <img src="./Profil_Bild.jpeg" alt="Portrait of Nikola Vasic" data-i18n-alt="hero_img_alt" width="352"
             height="420" />
         </div>
-        <div class="photo-badge" data-i18n="open_badge">Open to Work</div>
+        <div class="photo-badge" data-i18n="open_badge">Open for new Challenges</div>
       </div>
     </div>
   </section>
@@ -91,14 +85,14 @@
   <!-- ============ ABOUT ============ -->
   <section id="about" class="section">
     <div class="container">
-      <div class="fade-up kicker" data-i18n="about_kicker">About me</div>
+      <div class="kicker" data-i18n="about_kicker">About me</div>
       <h2 class="section-title serif fade-up" data-i18n="about_title">Business informatics, with a product owner's way of
         thinking.</h2>
 
       <div class="about-grid">
         <!-- Product & leadership -->
         <div class="card-ocker fade-up">
-          <div class="kicker-dark" data-i18n="pl_kicker">Product &amp; leadership</div>
+          <div class="kicker on-ocker" data-i18n="pl_kicker">Product &amp; leadership</div>
           <div class="pl-title serif" data-i18n="pl_title">Team lead on a Kubernetes project — backlog, epics and
             stakeholder demos.</div>
           <p class="pl-body" data-i18n="pl_body">I own the “why” as much as the “how”: prioritising work, writing user
@@ -120,7 +114,7 @@
 
         <!-- Stack -->
         <div class="card fade-up">
-          <div class="kicker-soft" data-i18n="stack_kicker">Builds with</div>
+          <div class="kicker" data-i18n="stack_kicker">Builds with</div>
           <div class="stack-chips">
             <span class="stack-chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                 alt="" loading="lazy">Node.js</span>
@@ -154,11 +148,11 @@
   <!-- ============ EDUCATION ============ -->
   <section id="education" class="section">
     <div class="container">
-      <div class="fade-up kicker" data-i18n="edu_kicker">Education</div>
+      <div class="kicker" data-i18n="edu_kicker">Education</div>
       <h2 class="section-title serif fade-up" data-i18n="edu_title">Studies &amp; background</h2>
 
       <div class="edu-item fade-up">
-        <div class="edu-years" data-i18n="edu_m_years">from Oct 2026</div>
+        <div class="edu-years" data-i18n="edu_m_years">Ongoing</div>
         <div>
           <div class="edu-degree serif" data-i18n="edu_m_degree">MSc Big Data and Business Intelligence</div>
           <div class="edu-school" data-i18n="edu_m_school">FH JOANNEUM, Graz</div>
@@ -172,8 +166,8 @@
         <div>
           <div class="edu-degree serif" data-i18n="edu1_degree">BSc Business Informatics</div>
           <div class="edu-school" data-i18n="edu1_school">FH JOANNEUM, Graz</div>
-          <div class="edu-detail" data-i18n="edu1_detail">Focus: software development, business intelligence, database
-            systems and business-informatics applications.</div>
+          <div class="edu-detail" data-i18n="edu1_detail">Focus: software development, business intelligence,
+            projectmanagement.</div>
         </div>
       </div>
 
@@ -181,7 +175,7 @@
         <div class="edu-years" data-i18n="edu2_years">2019 — 2022</div>
         <div>
           <div class="edu-degree serif" data-i18n="edu2_degree">Matura, Digital Business</div>
-          <div class="edu-school" data-i18n="edu2_school">Handelsakademie, Graz</div>
+          <div class="edu-school" data-i18n="edu2_school">Business school, Graz</div>
           <div class="edu-detail" data-i18n="edu2_detail">Focus: software development, business administration and
             accounting.</div>
         </div>
@@ -192,7 +186,7 @@
   <!-- ============ PROJECTS ============ -->
   <section id="projects" class="section">
     <div class="container">
-      <div class="section-head fade-up">
+      <div class="section-head">
         <div class="kicker" data-i18n="proj_kicker">Selected projects</div>
         <div class="section-note" data-i18n="proj_note">Leadership first, stack second</div>
       </div>
@@ -249,7 +243,7 @@
       <div class="contact-panel fade-up">
         <div class="contact-glow" aria-hidden="true"></div>
         <div class="contact-inner">
-          <div class="contact-kicker" data-i18n="contact_kicker">Get in touch</div>
+          <div class="kicker on-ocker" data-i18n="contact_kicker">Get in touch</div>
           <h2 class="contact-title serif" data-i18n="contact_title">Let's build something together.</h2>
           <p class="contact-body" data-i18n="contact_body">Whether you're hiring, collaborating, or just curious about my
             work, I'd love to hear from you.</p>
@@ -259,8 +253,11 @@
               rel="noreferrer noopener">LinkedIn</a>
             <a href="https://github.com/Vaske4" class="btn-ghost" target="_blank" rel="noreferrer noopener">GitHub</a>
           </div>
-          <div class="contact-loc"><span aria-hidden="true">📍</span> <span data-i18n="contact_location">Graz,
-              Austria</span></div>
+          <div class="contact-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg><span data-i18n="contact_location">Graz, Austria</span></div>
         </div>
       </div>
     </div>
@@ -284,7 +281,6 @@
         page_title: "Nikola Vasic - Portfolio",
         menu_label: "☰ Menu",
         menu_aria: "Open/close menu",
-        nav_home: "Home",
         nav_about: "About",
         nav_education: "Education",
         nav_projects: "Projects",
@@ -299,7 +295,6 @@
         hero_img_alt: "Portrait of Nikola Vasic",
         stat_langs: "Languages & frameworks",
         stat_projects: "Shipped projects",
-        stat_lead: "Team lead role",
         open_badge: "Open for new Challenges",
         about_kicker: "About me",
         about_title: "Business informatics, with a product owner’s way of thinking.",
@@ -346,12 +341,11 @@
         page_title: "Nikola Vasic - Lebenslauf",
         menu_label: "☰ Menü",
         menu_aria: "Menü öffnen/schließen",
-        nav_home: "Home",
         nav_about: "Über mich",
         nav_education: "Ausbildung",
         nav_projects: "Projekte",
         nav_contact: "Kontakt",
-        say_hello: "Say hello",
+        say_hello: "Sag Hallo",
         hero_eyebrow: "Willkommen",
         hero_title: "Ein Entwickler mit <em>Leadership-</em>Mindset.",
         hero_lede: "Ich bin Nikola — Wirtschaftsinformatik-Student an der FH JOANNEUM, Graz. Ich mache aus Anforderungen User Stories, aus User Stories Software und aus Teams liefernde Teams.",
@@ -361,7 +355,6 @@
         hero_img_alt: "Porträt von Nikola Vasic",
         stat_langs: "Sprachen & Frameworks",
         stat_projects: "Umgesetzte Projekte",
-        stat_lead: "Team-Lead-Rolle",
         open_badge: "Offen für neue Herausforderungen",
         about_kicker: "Über mich",
         about_title: "Wirtschaftsinformatik — mit dem Denken eines Product Owners.",
